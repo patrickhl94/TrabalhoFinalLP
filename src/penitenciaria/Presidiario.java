@@ -50,7 +50,10 @@ public class Presidiario extends Pessoa {
 
     @Override
     public String toString() {
-        return "Presidiario{" + "crime=" + crime + ", pena=" + pena + ", tempoPena=" + tempoPena + '}';
+        return this.getCod_pessoa() + "\t" + this.getNome() + "\t" + this.getSexo() + "\t"
+                + this.getIdade() + "\t" + this.getAla() + "\t" + this.getSetor() + "\t"
+                + this.getCela() + "\t" + this.crime + "\t" + this.pena + "\t"
+                + this.tempoPena + "\n";
     }
 
 }
