@@ -23,4 +23,7 @@ public class ControleVisitas {
         return "ControleVisitas{" + "visitas=" + visitas + '}';
     }
 
+    // INSERIR VISITAS NO SISTEMA.
+
+    
 }
