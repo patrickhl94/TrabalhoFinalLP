@@ -5,8 +5,8 @@ public class Visitante extends Pessoa {
     private String parentesco;
     private Presidiario presidi;
 
-    public Visitante(String parentesco, Presidiario presidi, String nome, int idade, int cod_pessoa, String sexo, String ala, String setor, String cela) {
-        super(nome, idade, cod_pessoa, sexo, ala, setor, cela);
+    public Visitante(String parentesco, Presidiario presidi, String nome, int nascimento, int cod_pessoa, String sexo, String ala, String setor, String cela) {
+        super(nome, nascimento, cod_pessoa, sexo, ala, setor, cela);
         this.parentesco = parentesco;
         this.presidi = presidi;
     }

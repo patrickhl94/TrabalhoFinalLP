@@ -4,23 +4,23 @@ public class Presidiario extends Pessoa {
     //static final String 121 = "Homicidio";
 
     private String crime;
-    private boolean pena;
+    private boolean condenacao;
     private int tempoPena;
 
-    public Presidiario(String crime, boolean pena, int tempoPena,
-            String nome, int idade, int cod_pessoa, String sexo,
+    public Presidiario(String crime, boolean condenacao, int tempoPena,
+            String nome, int nascimento, int cod_pessoa, String sexo,
             String ala, String setor, String cela) {
 
-        super(nome, idade, cod_pessoa, sexo, ala, setor, cela);
+        super(nome, nascimento, cod_pessoa, sexo, ala, setor, cela);
         this.crime = crime;
-        this.pena = pena;
+        this.condenacao = condenacao;
         this.tempoPena = tempoPena;
     }
 
     public Presidiario() {
         super();
         this.crime = "";
-        this.pena = false;
+        this.condenacao = false;
         this.tempoPena = 0;
     }
 
@@ -32,12 +32,12 @@ public class Presidiario extends Pessoa {
         this.crime = crime;
     }
 
-    public boolean isPena() {
-        return pena;
+    public boolean isCondenacao() {
+        return condenacao;
     }
 
-    public void setPena(boolean pena) {
-        this.pena = pena;
+    public void setCondenacao(boolean pena) {
+        this.condenacao = pena;
     }
 
     public int getTempoPena() {
@@ -52,7 +52,7 @@ public class Presidiario extends Pessoa {
     public String toString() {
         return this.getCod_pessoa() + "\t" + this.getNome() + "\t" + this.getSexo() + "\t"
                 + this.getIdade() + "\t" + this.getAla() + "\t" + this.getSetor() + "\t"
-                + this.getCela() + "\t" + this.crime + "\t" + this.pena + "\t"
+                + this.getCela() + "\t" + this.crime + "\t" + this.condenacao + "\t"
                 + this.tempoPena + "\n";
     }
 

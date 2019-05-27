@@ -5,6 +5,7 @@
  */
 package telas;
 
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -53,6 +54,12 @@ public class TelaLogin extends javax.swing.JFrame {
         });
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons8-algemas-filled-100.png"))); // NOI18N
+
+        txtSenha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtSenhaKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -117,10 +124,30 @@ public class TelaLogin extends javax.swing.JFrame {
         if (txtLogin.getText().equalsIgnoreCase("usuario01")
                 && txtSenha.getText().equals("usuario01")) {
             JOptionPane.showMessageDialog(null, "Bem Vindo!");
+            TelaPrincipal tela = new TelaPrincipal();
+            tela.setLocationRelativeTo(null);
+            tela.setVisible(true);
+            dispose();
         } else {
             JOptionPane.showMessageDialog(null, "Usuário ou Senha incorreto!");
         }
+
     }//GEN-LAST:event_btnEntrarActionPerformed
+
+    private void txtSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSenhaKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (txtLogin.getText().equalsIgnoreCase("usuario01")
+                    && txtSenha.getText().equals("usuario01")) {
+                JOptionPane.showMessageDialog(null, "Bem Vindo!");
+                TelaPrincipal tela = new TelaPrincipal();
+                tela.setLocationRelativeTo(null);
+                tela.setVisible(true);
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuário ou Senha incorreto!");
+            }
+        }
+    }//GEN-LAST:event_txtSenhaKeyPressed
 
     /**
      * @param args the command line arguments

@@ -41,6 +41,7 @@ public class TelaSobre extends javax.swing.JFrame {
         btngit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("SGP - Sobre");
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setText("Informações sobre o sistema e desenvolvedores");
