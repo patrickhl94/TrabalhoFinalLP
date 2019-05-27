@@ -27,9 +27,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -42,9 +44,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
+        itemSobre = new javax.swing.JMenuItem();
+
+        jMenuItem7.setText("jMenuItem7");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SGP - Principal");
+
+        jLabel3.setFont(new java.awt.Font("Perpetua Titling MT", 1, 55)); // NOI18N
+        jLabel3.setText("S.G.P");
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons8-algemas-filled-100.png"))); // NOI18N
         jLabel1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
@@ -52,8 +60,32 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Perpetua Titling MT", 1, 24)); // NOI18N
         jLabel2.setText("Sistema Gerenciamento de Presídios");
 
-        jLabel3.setFont(new java.awt.Font("Perpetua Titling MT", 1, 55)); // NOI18N
-        jLabel3.setText("S.G.P");
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(25, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                        .addComponent(jLabel3)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(211, 211, 211)
+                        .addComponent(jLabel1)))
+                .addGap(23, 23, 23))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jLabel1)
+                .addGap(16, 16, 16)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addContainerGap(69, Short.MAX_VALUE))
+        );
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons8-adicionar-usuÃ¡rio-masculino-filled-16.png"))); // NOI18N
         jMenu1.setText("Cadastros");
@@ -99,6 +131,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons8-sobre-16.png"))); // NOI18N
         jMenu5.setText("Sobre");
+        jMenu5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu5ActionPerformed(evt);
+            }
+        });
+
+        itemSobre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons8-sobre-16.png"))); // NOI18N
+        itemSobre.setText("Sobre");
+        itemSobre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemSobreActionPerformed(evt);
+            }
+        });
+        jMenu5.add(itemSobre);
+
         jMenuBar1.add(jMenu5);
 
         setJMenuBar(jMenuBar1);
@@ -107,29 +154,28 @@ public class TelaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addGap(19, 19, 19))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel1)
-                .addGap(16, 16, 16)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addGap(32, 32, 32))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu5ActionPerformed
+
+    private void itemSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemSobreActionPerformed
+        TelaSobre tela = new TelaSobre();
+        tela.setLocationRelativeTo(null);
+        tela.setVisible(true);
+        //telacentro.setLocationRelativeTo(null);
+        
+    }//GEN-LAST:event_itemSobreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,6 +217,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem itemSobre;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -186,5 +233,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
