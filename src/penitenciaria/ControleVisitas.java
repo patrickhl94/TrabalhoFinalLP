@@ -2,7 +2,7 @@ package penitenciaria;
 
 import java.util.ArrayList;
 
-public class ControleVisitas {
+public class ControleVisitas extends CadastroVisitas{
 
     private ArrayList<Visitante> visitas;
 
@@ -70,5 +70,5 @@ public class ControleVisitas {
         } else {
             return false;
         }
-    }
+    }    
 }

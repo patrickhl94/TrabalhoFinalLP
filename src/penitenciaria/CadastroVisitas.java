@@ -1,13 +1,11 @@
 package penitenciaria;
 
 import java.io.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-public class CadastroPresidi {
+public class CadastroVisitas {
 
-    static StringBuffer memoriaPres = new StringBuffer();
+    static StringBuffer memoriaVist = new StringBuffer();
 
     //APAGA TUDO OQUE ESTÁ NA MEMORIA E INICIA ELA RECEBENDO TODO CONTEUDO DO ARQUIVO
     public static void iniciarMemoria() {
@@ -16,13 +14,13 @@ public class CadastroPresidi {
         try {
             FileReader entrada = new FileReader("C:\\Users\\patri\\OneDrive\\"
                     + "Área de Trabalho\\DEVELOPER\\Projeto NetBeans\\Trabalho_Final_LP"
-                    + "\\src\\arquivosTXT\\CadastroPresidi.txt");
+                    + "\\src\\arquivosTXT\\CadastroVisit.txt");
             BufferedReader lerBuffer = new BufferedReader(entrada);
 
-            memoriaPres.delete(0, memoriaPres.length());
+            memoriaVist.delete(0, memoriaVist.length());
 
             while ((linha = lerBuffer.readLine()) != null) {
-                memoriaPres.append(linha + "\n");
+                memoriaVist.append(linha + "\n");
             }
 
         } catch (FileNotFoundException erro1) {
@@ -37,10 +35,10 @@ public class CadastroPresidi {
         try {
             FileWriter entrada = new FileWriter("C:\\Users\\patri\\OneDrive\\"
                     + "Área de Trabalho\\DEVELOPER\\Projeto NetBeans\\Trabalho_Final_LP"
-                    + "\\src\\arquivosTXT\\CadastroPresidi.txt");
+                    + "\\src\\arquivosTXT\\CadastroVisit.txt");
             BufferedWriter escreveBuffer = new BufferedWriter(entrada);
 
-            escreveBuffer.write(memoriaPres.toString());
+            escreveBuffer.write(memoriaVist.toString());
             escreveBuffer.flush();
             escreveBuffer.close();
 
