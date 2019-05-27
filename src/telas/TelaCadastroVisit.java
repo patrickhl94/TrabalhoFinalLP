@@ -5,6 +5,10 @@
  */
 package telas;
 
+//IMPORTAÇÃO DA CLASSE CadastroVisitas PARA USAR OS METODOS STATICS
+// VERIFICAR COM A PROFESSORA A RESPEITO DESTA PRATICA
+import penitenciaria.CadastroVisitas;
+
 /**
  *
  * @author patri
@@ -34,7 +38,7 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtNome = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -177,7 +181,7 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
                                                     .addGap(67, 67, 67)
                                                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                         .addGroup(jPanel2Layout.createSequentialGroup()
-                                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                             .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -205,7 +209,7 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
                             .addComponent(jLabel7))
                         .addGap(5, 5, 5)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -315,6 +319,11 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
         );
 
         jButton1.setText("Cadastrar Visitante");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Sair");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -381,6 +390,11 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String nome = txtNome.getText();
+        CadastroVisitas.cadastroVisitante(nome);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -411,10 +425,10 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-               // new TelaCadastroVisit().setVisible(true);
-            TelaCadastroVisit tela = new TelaCadastroVisit();
-            tela.setLocationRelativeTo(null);
-            tela.setVisible(true);
+                // new TelaCadastroVisit().setVisible(true);
+                TelaCadastroVisit tela = new TelaCadastroVisit();
+                tela.setLocationRelativeTo(null);
+                tela.setVisible(true);
             }
         });
     }
@@ -456,11 +470,11 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables
 }

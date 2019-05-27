@@ -47,4 +47,10 @@ public class CadastroVisitas {
         }
 
     }
+
+//    METODO PARA CADASTRAR VISITANTES QUE IRA SER CHAMADA DO JFRAME TelaCadastroVisit,
+//    QUE IRÁ PASSAR POR PARAMETRO OS DADOS OBTIDOS PELA TELA.
+    public static void cadastroVisitante(String nome) {
+        JOptionPane.showMessageDialog(null, "DEU CERTO :D" + " Nome passado " +nome);
+    }
 }
