@@ -4,15 +4,16 @@ import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import telas.TelaCadastroPresid;
 
-public class CadastroPresidi {
+public class CadastroPresidi extends TelaCadastroPresid{
 
     static StringBuffer memoriaPres = new StringBuffer();
 
     //APAGA TUDO OQUE ESTÁ NA MEMORIA E INICIA ELA RECEBENDO TODO CONTEUDO DO ARQUIVO
     public static void iniciarMemoria() {
         String linha = "";
-
+       
         try {
             FileReader entrada = new FileReader("C:\\Users\\patri\\OneDrive\\"
                     + "Área de Trabalho\\DEVELOPER\\Projeto NetBeans\\Trabalho_Final_LP"
