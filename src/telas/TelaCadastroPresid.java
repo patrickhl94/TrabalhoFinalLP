@@ -28,6 +28,7 @@ public class TelaCadastroPresid extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel12 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -72,6 +73,8 @@ public class TelaCadastroPresid extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
 
         jLabel12.setText("jLabel12");
+
+        jLabel20.setText("jLabel20");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("SGP - Cadastro Detentos");
@@ -487,6 +490,7 @@ public class TelaCadastroPresid extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

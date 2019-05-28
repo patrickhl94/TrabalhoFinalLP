@@ -3,7 +3,7 @@ package penitenciaria;
 public abstract class Pessoa {
 
     private String nome;
-    private int nascimento;
+    private int idade;
     private int cod_pessoa;
     private String sexo;
     private String ala;
@@ -12,7 +12,7 @@ public abstract class Pessoa {
 
     public Pessoa(String nome, int idade, int cod_pessoa, String sexo, String ala, String setor, String cela) {
         this.nome = nome;
-        this.nascimento = idade;
+        this.idade = idade;
         this.cod_pessoa = cod_pessoa;
         this.sexo = sexo;
         this.ala = ala;
@@ -23,7 +23,7 @@ public abstract class Pessoa {
     public Pessoa() {
         this.ala = "";
         this.cela = "";
-        this.nascimento = 0;
+        this.idade = 0;
         this.setor = "";
         this.nome = "";
         this.cod_pessoa = 0;
@@ -40,11 +40,11 @@ public abstract class Pessoa {
     }
 
     public int getIdade() {
-        return nascimento;
+        return idade;
     }
 
     public void setIdade(int idade) {
-        this.nascimento = idade;
+        this.idade = idade;
     }
 
     public int getCod_pessoa() {
@@ -89,7 +89,7 @@ public abstract class Pessoa {
 
     @Override
     public String toString() {
-        return "Pessoa{" + "nome=" + nome + ", idade=" + nascimento + ", cod_pessoa=" + cod_pessoa + ", sexo=" + sexo + ", ala=" + ala + ", setor=" + setor + ", cela=" + cela + '}';
+        return "Pessoa{" + "nome=" + nome + ", idade=" + idade + ", cod_pessoa=" + cod_pessoa + ", sexo=" + sexo + ", ala=" + ala + ", setor=" + setor + ", cela=" + cela + '}';
     }
 
 }
