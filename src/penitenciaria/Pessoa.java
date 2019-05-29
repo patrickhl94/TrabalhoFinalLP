@@ -5,6 +5,7 @@ public abstract class Pessoa {
     private String nome;
     private int idade;
     private int cod_pessoa;
+    private String rg;
     private String sexo;
     private String ala;
     private String setor;
@@ -20,6 +21,16 @@ public abstract class Pessoa {
         this.cela = cela;
     }
 
+    public Pessoa(String nome, int idade, String rg, String sexo, String ala, String setor, String cela) {
+        this.nome = nome;
+        this.idade = idade;
+        this.rg = rg;
+        this.sexo = sexo;
+        this.ala = ala;
+        this.setor = setor;
+        this.cela = cela;
+    }
+
     public Pessoa() {
         this.ala = "";
         this.cela = "";
@@ -29,6 +40,14 @@ public abstract class Pessoa {
         this.cod_pessoa = 0;
         this.sexo = "";
 
+    }
+
+    public String getRg() {
+        return rg;
+    }
+
+    public void setRg(String rg) {
+        this.rg = rg;
     }
 
     public String getNome() {
@@ -89,7 +108,8 @@ public abstract class Pessoa {
 
     @Override
     public String toString() {
-        return "Pessoa{" + "nome=" + nome + ", idade=" + idade + ", cod_pessoa=" + cod_pessoa + ", sexo=" + sexo + ", ala=" + ala + ", setor=" + setor + ", cela=" + cela + '}';
+        return "Pessoa{" + "nome=" + nome + ", idade=" + idade + ", cod_pessoa=" + cod_pessoa
+                + ", rg=" + rg + ", sexo=" + sexo + ", ala=" + ala + ", setor=" + setor + ", cela=" + cela + '}';
     }
 
 }

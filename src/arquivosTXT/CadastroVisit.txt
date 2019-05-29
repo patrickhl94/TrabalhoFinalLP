@@ -1,0 +1,4 @@
+0	caaa	Masculino	15	Genro	1515	Masculina	Norte	155s
+0	MARCO	Masculino	30	Conjugue	852963	Feminina	Sul	SADA45
+0	MARCO	Masculino	30	Conjugue	852963	Feminina	Sul	SADA45
+0	MARCO LIMA	Masculino	30	Conjugue	852963	Feminina	Sul	SADA45

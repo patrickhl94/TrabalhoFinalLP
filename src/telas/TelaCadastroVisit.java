@@ -7,6 +7,7 @@ package telas;
 
 //IMPORTAÇÃO DA CLASSE CadastroVisitas PARA USAR OS METODOS STATICS
 // VERIFICAR COM A PROFESSORA A RESPEITO DESTA PRATICA
+import javax.swing.JOptionPane;
 import penitenciaria.CadastroVisitas;
 
 /**
@@ -48,7 +49,6 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
         jFormattedTextField1 = new javax.swing.JFormattedTextField();
         jLabel6 = new javax.swing.JLabel();
         jFormattedTextField2 = new javax.swing.JFormattedTextField();
-        jFormattedTextField3 = new javax.swing.JFormattedTextField();
         jLabel7 = new javax.swing.JLabel();
         txtSex = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
@@ -61,6 +61,7 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
         jTextField4 = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         txtIda = new javax.swing.JTextField();
+        txtRg = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         txtCrDet = new javax.swing.JTextField();
@@ -93,6 +94,8 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
 
         jLabel1.setText("Codigo Registro*");
 
+        txtCod.setEditable(false);
+        txtCod.setText("Automatico");
         txtCod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCodActionPerformed(evt);
@@ -119,12 +122,6 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
 
         try {
             jFormattedTextField2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        try {
-            jFormattedTextField3.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###-#")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -168,9 +165,9 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtCod)
+                                    .addComponent(txtCod, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jFormattedTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE))
+                                    .addComponent(txtRg))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -242,10 +239,10 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jFormattedTextField3, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jFormattedTextField1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jFormattedTextField2, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
@@ -415,17 +412,16 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String nome = txtNome.getText();
-        int codigo = Integer.parseInt(txtCod.getText());
-        int idade = Integer.parseInt(txtIda.getText());
-        String sexo = txtSex.getToolTipText();
-        String ala = txtAla.getToolTipText();
-        String setor = txtSet.getToolTipText();
+        String rg = txtRg.getText();
+        String idade = txtIda.getText();
+        String sexo = txtSex.getSelectedItem().toString();
+        String ala = txtAla.getSelectedItem().toString();
+        String setor = txtSet.getSelectedItem().toString();
         String cela = txtCel.getText();
         String crDetento = txtCrDet.getText();
-        String parentesco = txtPar.getToolTipText();
-
-        CadastroVisitas.cadastroVisitante(nome, codigo, idade, sexo, ala, setor, cela, crDetento, parentesco);
-
+        String parentesco = txtPar.getSelectedItem().toString();
+        
+        CadastroVisitas.cadastroVisitante(nome, idade, rg, sexo, ala, setor, cela, crDetento, parentesco);
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -478,7 +474,6 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JFormattedTextField jFormattedTextField2;
-    private javax.swing.JFormattedTextField jFormattedTextField3;
     private javax.swing.JFormattedTextField jFormattedTextField4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -516,6 +511,7 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
     private javax.swing.JTextField txtIda;
     private javax.swing.JTextField txtNome;
     private javax.swing.JComboBox<String> txtPar;
+    private javax.swing.JTextField txtRg;
     private javax.swing.JComboBox<String> txtSet;
     private javax.swing.JComboBox<String> txtSex;
     // End of variables declaration//GEN-END:variables

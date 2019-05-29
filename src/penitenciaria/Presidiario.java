@@ -7,11 +7,8 @@ public class Presidiario extends Pessoa {
     private boolean condenacao;
     private int tempoPena;
 
-    public Presidiario(String crime, boolean condenacao, int tempoPena,
-            String nome, int nascimento, int cod_pessoa, String sexo,
-            String ala, String setor, String cela) {
-
-        super(nome, nascimento, cod_pessoa, sexo, ala, setor, cela);
+    public Presidiario(String crime, boolean condenacao, int tempoPena, String nome, int idade, String rg, String sexo, String ala, String setor, String cela) {
+        super(nome, idade, rg, sexo, ala, setor, cela);
         this.crime = crime;
         this.condenacao = condenacao;
         this.tempoPena = tempoPena;

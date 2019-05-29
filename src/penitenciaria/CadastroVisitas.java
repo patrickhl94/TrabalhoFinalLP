@@ -14,10 +14,9 @@ public class CadastroVisitas {
         String linha = "";
 
         try {
-            FileReader lerArquivo = new FileReader("C:\\Users\\patri\\OneDrive\\"
+            BufferedReader lerBuffer = new BufferedReader(new FileReader("C:\\Users\\patri\\OneDrive\\"
                     + "Área de Trabalho\\DEVELOPER\\Projeto NetBeans\\Trabalho_Final_LP"
-                    + "\\src\\arquivosTXT\\CadastroVisit.txt");
-            BufferedReader lerBuffer = new BufferedReader(lerArquivo);
+                    + "\\src\\arquivosTXT\\CadastroVisit.txt"));
 
             memoriaVisit.delete(0, memoriaVisit.length());
 
@@ -37,14 +36,14 @@ public class CadastroVisitas {
 
     public static void gravarDadosArq() {
         try {
-            FileWriter entrada = new FileWriter("C:\\Users\\patri\\OneDrive\\"
-                    + "Área de Trabalho\\DEVELOPER\\Projeto NetBeans\\Trabalho_Final_LP"
-                    + "\\src\\arquivosTXT\\CadastroVisit.txt");
-            BufferedWriter lerBuffer = new BufferedWriter(entrada);
 
-            lerBuffer.write(memoriaVisit.toString());
-            lerBuffer.flush();
-            lerBuffer.close();
+            BufferedWriter escreveBuffer = new BufferedWriter(new FileWriter("C:\\Users\\patri\\OneDrive\\"
+                    + "Área de Trabalho\\DEVELOPER\\Projeto NetBeans\\Trabalho_Final_LP"
+                    + "\\src\\arquivosTXT\\CadastroVisit.txt"));
+
+            escreveBuffer.write(memoriaVisit.toString());
+            escreveBuffer.flush();
+            escreveBuffer.close();
 
         } catch (IOException erro) {
             JOptionPane.showMessageDialog(null, "Erro, não foi possível ler Arquivo");
@@ -54,19 +53,41 @@ public class CadastroVisitas {
 
 //    METODO PARA CADASTRAR VISITANTES QUE IRA SER CHAMADA DO JFRAME TelaCadastroVisit,
 //    QUE IRÁ PASSAR POR PARAMETRO OS DADOS OBTIDOS PELA TELA.
-    public static void cadastroVisitante(String nome, int codigo, int idade, String sexo, String ala, String setor, String cela,
-            String crDetento, String parentesco) {
-            JOptionPane.showMessageDialog(null, " " + nome);
-            /*
-        try {
-            FileWriter escreverArquivo = new FileWriter("C:\\Users\\patri\\OneDrive\\"
-                    + "Área de Trabalho\\DEVELOPER\\Projeto NetBeans\\Trabalho_Final_LP"
-                    + "\\src\\arquivosTXT\\CadastroVisit.txt");
-            BufferedWriter escreverBuffer = new BufferedWriter(escreverArquivo);
+    public static void cadastroVisitante(String nome, String idade, String rg, String sexo, String ala, String setor,
+            String cela, String crDetento, String parentesco) {
 
-        } catch (IOException ex) {
+        iniciarMemoria();
+
+        try {
+            BufferedWriter escreveBuffer = new BufferedWriter(new FileWriter("C:\\Users\\patri\\OneDrive\\"
+                    + "Área de Trabalho\\DEVELOPER\\Projeto NetBeans\\Trabalho_Final_LP"
+                    + "\\src\\arquivosTXT\\CadastroVisit.txt", true));
+
+            if (memoriaVisit.length() != 0) {
+
+                if (memoriaVisit.indexOf(rg) == -1) {
+
+                    Visitante novo = new Visitante(parentesco, nome, Integer.parseInt(idade), rg, sexo, ala, setor, cela, Integer.parseInt(crDetento));
+                    JOptionPane.showMessageDialog(null, "Cadastro Realizado com Sucesso!");
+                    escreveBuffer.write(novo.toString());
+                    escreveBuffer.flush();
+                    escreveBuffer.close();;
+                } else {
+                    JOptionPane.showMessageDialog(null, "Já existe em nosso banco de dados um cadastro com este RG");
+                }
+
+            } else {
+                Visitante novo = new Visitante(parentesco, nome, Integer.parseInt(idade), rg, sexo, ala, setor, cela, Integer.parseInt(crDetento));
+                JOptionPane.showMessageDialog(null, "Cadastro Realizado com Sucesso!");
+                escreveBuffer.write(novo.toString());
+                escreveBuffer.flush();
+                escreveBuffer.close();;
+            }
+
+        } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Erro, não foi possível gravar");
-        }*/
+        }
+
     }
 
 }

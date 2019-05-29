@@ -3,17 +3,17 @@ package penitenciaria;
 public class Visitante extends Pessoa {
 
     private String parentesco;
-    private Presidiario presidi;
+    private int crDetento;
 
-    public Visitante(String parentesco, Presidiario presidi, String nome, int nascimento, int cod_pessoa, String sexo, String ala, String setor, String cela) {
-        super(nome, nascimento, cod_pessoa, sexo, ala, setor, cela);
+    public Visitante(String parentesco, String nome, int idade, String rg, String sexo, String ala, String setor, String cela, int crDeten) {
+        super(nome, idade, rg, sexo, ala, setor, cela);
         this.parentesco = parentesco;
-        this.presidi = presidi;
+        this.crDetento = crDeten;
     }
 
-    public Visitante(String parentesco, Presidiario presidi) {
+    public Visitante(String parentesco, int crDetento) {
         this.parentesco = parentesco;
-        this.presidi = presidi;
+        this.crDetento = crDetento;
     }
 
     public String getParentesco() {
@@ -24,18 +24,18 @@ public class Visitante extends Pessoa {
         this.parentesco = parentesco;
     }
 
-    public Presidiario getPresidi() {
-        return presidi;
+    public int getCrDetento() {
+        return crDetento;
     }
 
-    public void setPresidi(Presidiario presidi) {
-        this.presidi = presidi;
+    public void setCrDetento(int crDetento) {
+        this.crDetento = crDetento;
     }
 
     @Override
     public String toString() {
         return this.getCod_pessoa() + "\t" + this.getNome() + "\t" + this.getSexo() + "\t"
-                + this.getIdade() + "\t" + this.parentesco + "\t" + this.presidi + "\t" 
+                + this.getIdade() + "\t" + this.parentesco + "\t" + this.crDetento + "\t"
                 + this.getAla() + "\t" + this.getSetor() + "\t" + this.getCela() + "\n";
     }
 

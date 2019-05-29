@@ -81,10 +81,10 @@ public class TelaRelatTotPresid extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         DefaultTableModel tabela = (DefaultTableModel) relTabel.getModel();
 
-        lista.add(new Presidiario("Homicidio", true, 20, "Paulo", 1994, 123132,
-                "Masculino", "Masculina", "Norte", "MN0008"));
-        lista.add(new Presidiario("rOUBO", true, 28, "lUCAS", 1997, 123132,
-                "Masculino", "Masculina", "lESTE", "ML0008"));
+       // lista.add(new Presidiario("Homicidio", true, 20, "Paulo", 1994, 123132,
+              //  "Masculino", "Masculina", "Norte", "MN0008"));
+       // lista.add(new Presidiario("rOUBO", true, 28, "lUCAS", 1997, 123132,
+        //        "Masculino", "Masculina", "lESTE", "ML0008"));
 
         //CODIGO PARA ADCIONAR OS DADOS NA TABELA
         for (Presidiario pres : lista) {
