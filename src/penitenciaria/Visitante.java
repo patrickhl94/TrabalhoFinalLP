@@ -35,8 +35,9 @@ public class Visitante extends Pessoa {
     @Override
     public String toString() {
         return this.getCod_pessoa() + "\t" + this.getNome() + "\t" + this.getSexo() + "\t"
-                + this.getIdade() + "\t" + this.parentesco + "\t" + this.crDetento + "\t"
-                + this.getAla() + "\t" + this.getSetor() + "\t" + this.getCela() + "\n";
+                + this.getIdade() + "\t" + this.parentesco + "\t" + this.getRg() + "\t"
+                + this.getAla() + "\t" + this.getSetor() + "\t" + this.getCela() + "\t"
+                + this.crDetento + "\n";
     }
 
 }

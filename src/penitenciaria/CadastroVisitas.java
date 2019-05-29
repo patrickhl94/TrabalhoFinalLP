@@ -71,7 +71,7 @@ public class CadastroVisitas {
                     JOptionPane.showMessageDialog(null, "Cadastro Realizado com Sucesso!");
                     escreveBuffer.write(novo.toString());
                     escreveBuffer.flush();
-                    escreveBuffer.close();;
+                    escreveBuffer.close();
                 } else {
                     JOptionPane.showMessageDialog(null, "Já existe em nosso banco de dados um cadastro com este RG");
                 }
@@ -89,5 +89,7 @@ public class CadastroVisitas {
         }
 
     }
+
+
 
 }

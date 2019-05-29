@@ -420,8 +420,15 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
         String cela = txtCel.getText();
         String crDetento = txtCrDet.getText();
         String parentesco = txtPar.getSelectedItem().toString();
-        
-        CadastroVisitas.cadastroVisitante(nome, idade, rg, sexo, ala, setor, cela, crDetento, parentesco);
+
+        if (nome != "" && rg != "" && idade != "" && sexo != "Selecione"
+                && ala != "Selecione" && setor != "Selecione" && cela != "" && crDetento != ""
+                && parentesco != "Selecione") {
+            CadastroVisitas.cadastroVisitante(nome, idade, rg, sexo, ala, setor, cela, crDetento, parentesco);
+        } else {
+            JOptionPane.showMessageDialog(null, "Existem campos obrigatórios em branco.");
+        }
+
 
     }//GEN-LAST:event_jButton1ActionPerformed
 

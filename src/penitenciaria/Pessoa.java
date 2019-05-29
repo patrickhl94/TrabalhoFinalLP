@@ -70,7 +70,7 @@ public abstract class Pessoa {
         return cod_pessoa;
     }
 
-    public void setCod_pessoa(int cod_pessoa) {
+    private void setCod_pessoa(int cod_pessoa) {
         this.cod_pessoa = cod_pessoa;
     }
 
