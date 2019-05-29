@@ -1,5 +1,6 @@
 package penitenciaria;
 
+import java.awt.HeadlessException;
 import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -81,7 +82,7 @@ public class CadastroVisitas {
                 JOptionPane.showMessageDialog(null, "Cadastro Realizado com Sucesso!");
                 escreveBuffer.write(novo.toString());
                 escreveBuffer.flush();
-                escreveBuffer.close();;
+                escreveBuffer.close();
             }
 
         } catch (IOException e) {
@@ -90,6 +91,59 @@ public class CadastroVisitas {
 
     }
 
+    public static Visitante pesquisarVisitante(String rg) {
+        String parentesco, nome, idade, sexo, ala, setor, cela, crDeten;
+        int inicio, fim, primeiro, ultimo;
 
+        iniciarMemoria();
+
+        if (memoriaVisit.length() != 0) {
+            // String codigoStr = Integer.toString(codigo);
+            inicio = memoriaVisit.indexOf(rg);
+
+            if (inicio != -1) {
+                ultimo = memoriaVisit.indexOf("\t", inicio);
+                rg = memoriaVisit.substring(inicio, ultimo);
+                primeiro = ultimo + 1;
+                ultimo = memoriaVisit.indexOf("\t", primeiro);
+                nome = memoriaVisit.substring(primeiro, ultimo);
+                primeiro = ultimo + 1;
+                ultimo = memoriaVisit.indexOf("\t", primeiro);
+                sexo = memoriaVisit.substring(primeiro, ultimo);
+                primeiro = ultimo + 1;
+                ultimo = memoriaVisit.indexOf("\t", primeiro);
+                idade = memoriaVisit.substring(primeiro, ultimo);
+                primeiro = ultimo + 1;
+                ultimo = memoriaVisit.indexOf("\t", primeiro);
+                parentesco = memoriaVisit.substring(primeiro, ultimo);
+                primeiro = ultimo + 1;
+                ultimo = memoriaVisit.indexOf("\t", primeiro);
+                ala = memoriaVisit.substring(primeiro, ultimo);
+                primeiro = ultimo + 1;
+                ultimo = memoriaVisit.indexOf("\t", primeiro);
+                setor = memoriaVisit.substring(primeiro, ultimo);
+                primeiro = ultimo + 1;
+                ultimo = memoriaVisit.indexOf("\t", primeiro);
+                cela = memoriaVisit.substring(primeiro, ultimo);
+                primeiro = ultimo + 1;
+                fim = memoriaVisit.indexOf("\n", primeiro);
+                crDeten = memoriaVisit.substring(primeiro, fim);
+
+                //CONVERTENDO AS STRINGS PARA INT
+                int idadeInt = Integer.parseInt(idade);
+                int crDetenInt = Integer.parseInt(crDeten);
+                Visitante pesquisa = new Visitante(parentesco, nome, idadeInt, rg, sexo, ala, setor, cela, crDetenInt);
+                return pesquisa;
+            } else {
+                JOptionPane.showMessageDialog(null, "RG não cadastrado!");
+                return null;
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Não existem visitantes cadastrados!");
+            return null;
+        }
+
+    }
 
 }

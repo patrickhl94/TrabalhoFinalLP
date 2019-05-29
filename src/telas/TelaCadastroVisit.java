@@ -35,6 +35,7 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jComboBox2 = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -78,12 +79,15 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
+        btnPesquisa = new javax.swing.JButton();
 
         jLabel12.setText("jLabel12");
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane2.setViewportView(jTextArea1);
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("SGP - Cadastro Visitantes");
@@ -354,6 +358,13 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
 
         jLabel19.setText("( * ) Preenchimento obrigatorio");
 
+        btnPesquisa.setText("Pesquisa Visitante");
+        btnPesquisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -361,11 +372,11 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel19)
-                .addGap(62, 62, 62)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(81, 81, 81)
+                .addComponent(btnPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -373,6 +384,10 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(6, 6, 6))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(178, 178, 178))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -382,11 +397,13 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton1)
+                        .addComponent(btnPesquisa))
                     .addComponent(jLabel19))
-                .addGap(14, 14, 14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton2)
-                .addGap(58, 58, 58))
+                .addGap(60, 60, 60))
         );
 
         jScrollPane1.setViewportView(jPanel1);
@@ -420,7 +437,7 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
         String cela = txtCel.getText();
         String crDetento = txtCrDet.getText();
         String parentesco = txtPar.getSelectedItem().toString();
-
+        
         if (nome != "" && rg != "" && idade != "" && sexo != "Selecione"
                 && ala != "Selecione" && setor != "Selecione" && cela != "" && crDetento != ""
                 && parentesco != "Selecione") {
@@ -428,13 +445,41 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Existem campos obrigatórios em branco.");
         }
-
+        
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtCodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCodActionPerformed
+
+    private void btnPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaActionPerformed
+        
+        String rg = txtRg.getText();
+        if (CadastroVisitas.pesquisarVisitante(rg) != null) {
+            String nome = CadastroVisitas.pesquisarVisitante(rg).getNome();
+            String cela = CadastroVisitas.pesquisarVisitante(rg).getCela();
+            String idade = Integer.toString(CadastroVisitas.pesquisarVisitante(rg).getIdade());
+            String crDet = Integer.toString(CadastroVisitas.pesquisarVisitante(rg).getCrDetento());
+            
+            txtNome.setText(nome);
+            txtCel.setText(cela);
+            txtIda.setText(idade);
+            txtCrDet.setText(crDet);
+
+//            txtIda.setText(Integer.toString();
+//            txtCrDet.setText();
+//            txtSex.getSelectedItem().toString();
+//            txtAla.getSelectedItem().toString();
+//            txtSet.getSelectedItem().toString();
+//
+//            txtPar.getSelectedItem().toString();
+        } else {
+            JOptionPane.showMessageDialog(null, "Tente novamente");
+        }
+        
+
+    }//GEN-LAST:event_btnPesquisaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -475,9 +520,11 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnPesquisa;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JFormattedTextField jFormattedTextField2;
