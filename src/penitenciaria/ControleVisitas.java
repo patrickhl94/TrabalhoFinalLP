@@ -2,7 +2,7 @@ package penitenciaria;
 
 import java.util.ArrayList;
 
-public class ControleVisitas extends CadastroVisitas{
+public class ControleVisitas extends Cadastro{
 
     private ArrayList<Visitante> visitas;
 

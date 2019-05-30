@@ -11,9 +11,8 @@ public class Visitante extends Pessoa {
         this.crDetento = crDeten;
     }
 
-    public Visitante(String parentesco, int crDetento) {
-        this.parentesco = parentesco;
-        this.crDetento = crDetento;
+    public Visitante() {
+
     }
 
     public String getParentesco() {
@@ -34,9 +33,9 @@ public class Visitante extends Pessoa {
 
     @Override
     public String toString() {
-        return this.getCod_pessoa() + "\t" + this.getNome() + "\t" + this.getSexo() + "\t"
-                + this.getIdade() + "\t" + this.parentesco + "\t" + this.getRg() + "\t"
-                + this.getAla() + "\t" + this.getSetor() + "\t" + this.getCela() + "\t"
+        return this.getCod_pessoa() + ", " + this.getNome() + ", " + this.getSexo() + ", "
+                + this.getIdade() + ", " + this.parentesco + ", " + this.getRg() + ", "
+                + this.getAla() + ", " + this.getSetor() + ", " + this.getCela() + ", "
                 + this.crDetento + "\n";
     }
 

@@ -1,5 +1,2 @@
+0, MARIA, Feminino, 55, Amigo, 102030, Masculina, Norte, XA56565, 856428
 
-0	PATRICK	Masculino	24	Amigo	1234	Feminina	Norte	FN1234	4321
-0	MARIA	Feminino	24	Conjugue	2345	Masculina	Leste	FN2345	5432
-0	LUCAS	Masculino	77	Amigo	5555	Masculina	Norte		8778
-0	MARIA	Selecione	24	Conjugue	23458	Masculina	Leste	FN2345	5432

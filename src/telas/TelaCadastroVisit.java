@@ -7,8 +7,11 @@ package telas;
 
 //IMPORTAÇÃO DA CLASSE CadastroVisitas PARA USAR OS METODOS STATICS
 // VERIFICAR COM A PROFESSORA A RESPEITO DESTA PRATICA
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import penitenciaria.CadastroVisitas;
+import penitenciaria.Cadastro;
 
 /**
  *
@@ -79,7 +82,6 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
-        btnPesquisa = new javax.swing.JButton();
 
         jLabel12.setText("jLabel12");
 
@@ -358,13 +360,6 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
 
         jLabel19.setText("( * ) Preenchimento obrigatorio");
 
-        btnPesquisa.setText("Pesquisa Visitante");
-        btnPesquisa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPesquisaActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -374,9 +369,7 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
                 .addComponent(jLabel19)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(81, 81, 81)
-                .addComponent(btnPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
+                .addGap(254, 254, 254))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -397,9 +390,7 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton1)
-                        .addComponent(btnPesquisa))
+                    .addComponent(jButton1)
                     .addComponent(jLabel19))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton2)
@@ -437,15 +428,23 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
         String cela = txtCel.getText();
         String crDetento = txtCrDet.getText();
         String parentesco = txtPar.getSelectedItem().toString();
-        
-        if (nome != "" && rg != "" && idade != "" && sexo != "Selecione"
-                && ala != "Selecione" && setor != "Selecione" && cela != "" && crDetento != ""
-                && parentesco != "Selecione") {
-            CadastroVisitas.cadastroVisitante(nome, idade, rg, sexo, ala, setor, cela, crDetento, parentesco);
+
+        if (!nome.equals("") && !rg.equals("") && !idade.equals("") && !sexo.equals("Selecione")
+                && !ala.equals("Selecione") && !setor.equals("Selecione") && !cela.equals("") && !crDetento.equals("")
+                && !parentesco.equals("Selecione")) {
+
+            Cadastro cadas = new Cadastro();
+            try {
+                cadas.cadastroVisitante(nome, idade, rg, sexo, ala, setor, cela, crDetento, parentesco);
+
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, "Erro!");
+
+            }
         } else {
             JOptionPane.showMessageDialog(null, "Existem campos obrigatórios em branco.");
         }
-        
+
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -453,34 +452,7 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCodActionPerformed
 
-    private void btnPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaActionPerformed
-        
-        String rg = txtRg.getText();
-        if (CadastroVisitas.pesquisarVisitante(rg) != null) {
-            String nome = CadastroVisitas.pesquisarVisitante(rg).getNome();
-            String cela = CadastroVisitas.pesquisarVisitante(rg).getCela();
-            String idade = Integer.toString(CadastroVisitas.pesquisarVisitante(rg).getIdade());
-            String crDet = Integer.toString(CadastroVisitas.pesquisarVisitante(rg).getCrDetento());
-            
-            txtNome.setText(nome);
-            txtCel.setText(cela);
-            txtIda.setText(idade);
-            txtCrDet.setText(crDet);
-
-//            txtIda.setText(Integer.toString();
-//            txtCrDet.setText();
-//            txtSex.getSelectedItem().toString();
-//            txtAla.getSelectedItem().toString();
-//            txtSet.getSelectedItem().toString();
-//
-//            txtPar.getSelectedItem().toString();
-        } else {
-            JOptionPane.showMessageDialog(null, "Tente novamente");
-        }
-        
-
-    }//GEN-LAST:event_btnPesquisaActionPerformed
-
+    /**/
     /**
      * @param args the command line arguments
      */
@@ -520,7 +492,6 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnPesquisa;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
