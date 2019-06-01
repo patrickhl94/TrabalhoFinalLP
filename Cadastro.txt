@@ -1,0 +1,12 @@
+Amigo;PATRICK;25;4545;Masculino;Masculina;Norte;AS4545;54857
+Amigo;PATRICK;25;4545;Masculino;Masculina;Norte;AS4545;54857
+Amigo;JOAO;25;4545;Masculino;Masculina;Norte;AS4545;54857
+Amigo;PATRICK;25;4545;Masculino;Masculina;Norte;AS4545;54857
+Amigo;PATRICK;25;4545;Masculino;Masculina;Norte;AS4545;54857
+Amigo;JOAO;25;4545;Masculino;Masculina;Norte;AS4545;54857
+Amigo;JOAO;25;4545;Masculino;Masculina;Norte;AS4545;54857
+Amigo;SUELEM;32;4554;Feminino;Masculina;Norte;SA4545;784
+Amigo;MATEUS;32;4554;Masculino;Masculina;Norte;SA4545;784
+Amigo;GIELBERTO;32;4554;Masculino;Masculina;Norte;SA4545;784
+Amigo;GIELBERTO;32;4554;Masculino;Masculina;Norte;SA4545;784
+Amigo;GIELBERTO;32;4554;Masculino;Masculina;Norte;SA4545;784

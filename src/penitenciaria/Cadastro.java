@@ -3,6 +3,7 @@ package penitenciaria;
 import java.awt.HeadlessException;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -14,7 +15,7 @@ public class Cadastro {
     public String toString() {
         String aux = "";
         for (Pessoa p : cad) {
-            aux += p.toString() + "\n";
+            aux += p.toString();
         }
         return aux;
     }
@@ -24,14 +25,19 @@ public class Cadastro {
     public void cadastroVisitante(String nome, String idade, String rg, String sexo, String ala, String setor,
             String cela, String crDetento, String parentesco) throws FileNotFoundException, IOException {
 
-        BufferedWriter escreveBuffer = new BufferedWriter(new FileWriter("C:\\Users\\patri\\OneDrive\\"
-                + "Área de Trabalho\\DEVELOPER\\Projeto NetBeans\\Trabalho_Final_LP"
-                + "\\src\\arquivosTXT\\CadastroVisit.txt"));
+        BufferedWriter escreveBuffer;
+        escreveBuffer = new BufferedWriter(new FileWriter("Cadastro.txt", true));
 
         int idadeInt = Integer.parseInt(idade);
         int crDetentoInt = Integer.parseInt(crDetento);
-        
+
+        //QUANDO EU CADASTREI DIRETO NO OBJETO RETORNADO DO METODO leitura.lerArquivo(), DEU ERRO,
+        // DESTA CRIAMOS UM OUTRO ARRAY PARA RECEBER O ARRAY RETORNADO NO METODO ACIMA
+        LerArquivo leitura = new LerArquivo();
+        cad = leitura.lerArquivo();
         cad.add(new Visitante(parentesco, nome, idadeInt, rg, sexo, ala, setor, cela, crDetentoInt));
+
+        leitura.limparArq();
         JOptionPane.showMessageDialog(null, toString());
         escreveBuffer.write(toString());
         escreveBuffer.flush();
@@ -46,9 +52,6 @@ public class Cadastro {
 //                    
 //                    cad.add(new Visitante(parentesco, nome, Integer.parseInt(idade), rg, sexo, ala, setor, cela, Integer.parseInt(crDetento)));
 //                    JOptionPane.showMessageDialog(null, "Cadastro Realizado com Sucesso!");
-//                    escreveBuffer.write(cad.toString());
-//                    escreveBuffer.flush();
-//                    escreveBuffer.close();
 //                } else {
 //                    JOptionPane.showMessageDialog(null, "Já existe em nosso banco de dados um cadastro com este RG");
 //                }

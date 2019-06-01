@@ -7,6 +7,9 @@ package telas;
 
 //IMPORTAÇÃO DA CLASSE CadastroVisitas PARA USAR OS METODOS STATICS
 // VERIFICAR COM A PROFESSORA A RESPEITO DESTA PRATICA
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -369,7 +372,7 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
                 .addComponent(jLabel19)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(254, 254, 254))
+                .addGap(293, 293, 293))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -432,8 +435,8 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
         if (!nome.equals("") && !rg.equals("") && !idade.equals("") && !sexo.equals("Selecione")
                 && !ala.equals("Selecione") && !setor.equals("Selecione") && !cela.equals("") && !crDetento.equals("")
                 && !parentesco.equals("Selecione")) {
-
             Cadastro cadas = new Cadastro();
+           
             try {
                 cadas.cadastroVisitante(nome, idade, rg, sexo, ala, setor, cela, crDetento, parentesco);
 
