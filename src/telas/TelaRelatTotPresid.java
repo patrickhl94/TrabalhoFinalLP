@@ -7,7 +7,7 @@ package telas;
 
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
-import penitenciaria.Presidiario;
+import penitenciaria.Detento;
 
 /**
  *
@@ -76,7 +76,7 @@ public class TelaRelatTotPresid extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    static ArrayList<Presidiario> lista = new ArrayList<>();
+    static ArrayList<Detento> lista = new ArrayList<>();
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         DefaultTableModel tabela = (DefaultTableModel) relTabel.getModel();
@@ -87,12 +87,12 @@ public class TelaRelatTotPresid extends javax.swing.JFrame {
         //        "Masculino", "Masculina", "lESTE", "ML0008"));
 
         //CODIGO PARA ADCIONAR OS DADOS NA TABELA
-        for (Presidiario pres : lista) {
-            tabela.addRow(new Object[]{
-                pres.getCod_pessoa(), pres.getNome(), pres.getSexo(), pres.getIdade(),
-                pres.getAla(), pres.getSetor(), pres.getCela(), pres.getCrime(),
-                pres.isCondenacao(), pres.getTempoPena()});
-        }
+//        for (Detento pres : lista) {
+//            tabela.addRow(new Object[]{
+//                pres.getCod_pessoa(), pres.getNome(), pres.getSexo(), pres.getIdade(),
+//                pres.getAla(), pres.getSetor(), pres.getCela(), pres.getCrime(),
+//                pres.isCondenacao(), pres.getTempoPena()});
+//        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

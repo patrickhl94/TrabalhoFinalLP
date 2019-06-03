@@ -1,25 +1,16 @@
 package penitenciaria;
+
 public abstract class Pessoa {
-public static int codgeral = 500;
+
+    public static int codgeral = 500;
 
     private String nome;
     private int idade;
-    private int cod_pessoa;
     private String rg;
     private String sexo;
     private String ala;
     private String setor;
     private String cela;
-
-    public Pessoa(String nome, int idade, int cod_pessoa, String sexo, String ala, String setor, String cela) {
-        this.nome = nome;
-        this.idade = idade;
-        this.cod_pessoa = cod_pessoa;
-        this.sexo = sexo;
-        this.ala = ala;
-        this.setor = setor;
-        this.cela = cela;
-    }
 
     public Pessoa(String nome, int idade, String rg, String sexo, String ala, String setor, String cela) {
         this.nome = nome;
@@ -37,7 +28,7 @@ public static int codgeral = 500;
         this.idade = 0;
         this.setor = "";
         this.nome = "";
-        this.cod_pessoa = 0;
+        // this.cod_pessoa = 0;
         this.sexo = "";
 
     }
@@ -64,14 +55,6 @@ public static int codgeral = 500;
 
     public void setIdade(int idade) {
         this.idade = idade;
-    }
-
-    public int getCod_pessoa() {
-        return cod_pessoa;
-    }
-
-    private void setCod_pessoa(int cod_pessoa) {
-        this.cod_pessoa = cod_pessoa;
     }
 
     public String getSexo() {
@@ -108,7 +91,7 @@ public static int codgeral = 500;
 
     @Override
     public String toString() {
-        return "Pessoa{" + "nome=" + nome + ", idade=" + idade + ", cod_pessoa=" + cod_pessoa
+        return "Pessoa{" + "nome=" + nome + ", idade=" + idade + ", cod_pessoa="
                 + ", rg=" + rg + ", sexo=" + sexo + ", ala=" + ala + ", setor=" + setor + ", cela=" + cela + '}';
     }
 

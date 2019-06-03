@@ -1,0 +1,3 @@
+Feminicidio;false;11;LUCAS;25;12242;Masculino;Masculina;Norte;A124
+Furto;false;11;BRUNA;25;1227;Feminino;Feminina;Sul;A1244
+Furto;false;11;MARIO;25;12287;Masculino;Feminina;Sul;A1244

@@ -1,0 +1,3 @@
+Amigo;FERNANDA;24;1234;Feminino;Masculina;Norte;A4545;124
+Amigo;MARIA;24;12347;Feminino;Masculina;Norte;A4545;124
+Filho;JOAO;24;78451;Masculino;Feminina;Sul;A4545;124

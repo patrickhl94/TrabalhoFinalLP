@@ -12,13 +12,16 @@ import javax.swing.JOptionPane;
 
 public class LerArquivo {
 
-    public ArrayList<Pessoa> lerArq = new ArrayList<>();
-    private Scanner lerScan;
+    public ArrayList<Pessoa> lerArqVisitas = new ArrayList<>();
+    public ArrayList<Pessoa> lerArqDetento = new ArrayList<>();
+    private Scanner lerScanVisita;
+    private Scanner lerScanDetento;
 
     //CONSTRUTOR PARA LER ARQUIVO E GRAVAR NO ARRAY
     public LerArquivo() throws FileNotFoundException {
         try {
-            this.lerScan = new Scanner(new FileReader("Cadastro.txt"));
+            this.lerScanVisita = new Scanner(new FileReader("CadastroVisita.txt"));
+            this.lerScanDetento = new Scanner(new FileReader("CadastroDetento.txt"));
 
         } catch (FileNotFoundException e) {
             throw new FileNotFoundException("ARQUIVO NÃO ENCONTRADO!");
@@ -26,16 +29,17 @@ public class LerArquivo {
 
     }
 
-    public ArrayList<Pessoa> lerArquivo() {
+    // METODOS PARA LER, SEPARAR DADOS E LIMPAR ARQUIVOS DE VISITANTES
+    public ArrayList<Pessoa> lerArquivoVisitas() {
         String linha;
-        while (this.lerScan.hasNext()) {
-            linha = this.lerScan.nextLine();
-            lerArq.add(separarDados(linha));
+        while (this.lerScanVisita.hasNext()) {
+            linha = this.lerScanVisita.nextLine();
+            lerArqVisitas.add(separarDadosVisitas(linha));
         }
-        return lerArq;
+        return lerArqVisitas;
     }
 
-    private Pessoa separarDados(String linha) {
+    private Pessoa separarDadosVisitas(String linha) {
         String[] dados;
         dados = linha.split(";");
         int idadeInt = Integer.parseInt(dados[2]);
@@ -44,10 +48,43 @@ public class LerArquivo {
                 dados[5], dados[6], dados[7], crDetentoInt));
     }
 
-    public void limparArq() throws IOException {
+    public void limparArqVisitas() throws IOException {
         BufferedWriter escreveBuffer;
         try {
-            escreveBuffer = new BufferedWriter(new FileWriter("Cadastro.txt", false));
+            escreveBuffer = new BufferedWriter(new FileWriter("CadastroVisita.txt", false));
+            escreveBuffer.write("");
+            escreveBuffer.flush();
+            escreveBuffer.close();
+        } catch (IOException ex) {
+
+        }
+    }
+
+    // METODOS PARA LER, SEPARAR DADOS E LIMPAR ARQUIVOS DE DETENTOS
+    public ArrayList<Pessoa> lerArquivoDetento() {
+        String linha;
+        while (this.lerScanDetento.hasNext()) {
+            linha = this.lerScanDetento.nextLine();
+            lerArqDetento.add(separarDadosDetento(linha));
+        }
+        return lerArqDetento;
+    }
+
+    private Pessoa separarDadosDetento(String linha) {
+        String[] dados;
+        dados = linha.split(";");
+        int idadeInt = Integer.parseInt(dados[4]);
+        int tempPena = Integer.parseInt(dados[2]);
+        boolean conden = Cadastro.converterBool(dados[1]);
+
+        return (new Detento(dados[0], conden, tempPena, dados[3], idadeInt, dados[5],
+                dados[6], dados[7], dados[8], dados[9]));
+    }
+
+    public void limparArqDetento() throws IOException {
+        BufferedWriter escreveBuffer;
+        try {
+            escreveBuffer = new BufferedWriter(new FileWriter("CadastroDetento.txt", false));
             escreveBuffer.write("");
             escreveBuffer.flush();
             escreveBuffer.close();

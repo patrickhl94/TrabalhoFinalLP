@@ -10,11 +10,21 @@ import javax.swing.JOptionPane;
 
 public class Cadastro {
 
-    public ArrayList<Pessoa> cad = new ArrayList<>();
+    public ArrayList<Pessoa> cadVisita = new ArrayList<>();
+    public ArrayList<Pessoa> cadDetento = new ArrayList<>();
 
-    public String toString() {
+    //VERIFICAR COM A PROFESSORA SE É POSSIVEL UTILIZAR ESSE TOSTRING PARA OS DOIS ARRAYS
+    public String toStringVisit() {
         String aux = "";
-        for (Pessoa p : cad) {
+        for (Pessoa p : cadVisita) {
+            aux += p.toString();
+        }
+        return aux;
+    }
+
+    public String toStringDeten() {
+        String aux = "";
+        for (Pessoa p : cadDetento) {
             aux += p.toString();
         }
         return aux;
@@ -25,104 +35,101 @@ public class Cadastro {
     public void cadastroVisitante(String nome, String idade, String rg, String sexo, String ala, String setor,
             String cela, String crDetento, String parentesco) throws FileNotFoundException, IOException {
 
-        BufferedWriter escreveBuffer;
-        escreveBuffer = new BufferedWriter(new FileWriter("Cadastro.txt", true));
+        BufferedWriter escreveBufferVisit;
+        escreveBufferVisit = new BufferedWriter(new FileWriter("CadastroVisita.txt", true));
 
+        //CONVERSÃO DAS VARIAVEIS PARA O TIPO DOS ATRIBUTOS DO OBJETO 
         int idadeInt = Integer.parseInt(idade);
         int crDetentoInt = Integer.parseInt(crDetento);
 
-        //QUANDO EU CADASTREI DIRETO NO OBJETO RETORNADO DO METODO leitura.lerArquivo(), DEU ERRO,
-        // DESTA CRIAMOS UM OUTRO ARRAY PARA RECEBER O ARRAY RETORNADO NO METODO ACIMA
         LerArquivo leitura = new LerArquivo();
-        cad = leitura.lerArquivo();
-        cad.add(new Visitante(parentesco, nome, idadeInt, rg, sexo, ala, setor, cela, crDetentoInt));
+        cadVisita = leitura.lerArquivoVisitas();
 
-        leitura.limparArq();
-        JOptionPane.showMessageDialog(null, toString());
-        escreveBuffer.write(toString());
-        escreveBuffer.flush();
-        escreveBuffer.close();
+        if (cadVisita.size() != 0) {
+            boolean achou = false;
 
-//        try {
-//        
-//            
-//           if (cad.length() != 0) {
-//                
-//                if (memoriaVisit.indexOf(rg) == -1) {
-//                    
-//                    cad.add(new Visitante(parentesco, nome, Integer.parseInt(idade), rg, sexo, ala, setor, cela, Integer.parseInt(crDetento)));
-//                    JOptionPane.showMessageDialog(null, "Cadastro Realizado com Sucesso!");
-//                } else {
-//                    JOptionPane.showMessageDialog(null, "Já existe em nosso banco de dados um cadastro com este RG");
-//                }
-//                
-//            } else {
-//                Visitante novo = new Visitante(parentesco, nome, Integer.parseInt(idade), rg, sexo, ala, setor, cela, Integer.parseInt(crDetento));
-//                JOptionPane.showMessageDialog(null, "Cadastro Realizado com Sucesso!");
-//                String teste = "teste";
-//                escreveBuffer.write(teste);
-//                escreveBuffer.write(novo.toString());
-//                escreveBuffer.flush();
-//                escreveBuffer.close();
-//            }
-//            
-//        } catch (IOException e) {
-//            JOptionPane.showMessageDialog(null, "Erro, não foi possível gravar");
-//        }
-    }
+            for (int i = 0; i < cadVisita.size(); i++) {
+                if (cadVisita.get(i).getRg().equals(rg)) {
+                    achou = true;
+                }
+            }
 
-    /*public static Visitante pesquisarVisitante(String rg) {
-        String parentesco, nome, idade, sexo, ala, setor, cela, crDeten;
-        int inicio, fim, primeiro, ultimo;
+            if (achou) {
+                JOptionPane.showMessageDialog(null, "Já existe em nosso banco de dados um cadastro com este RG");
 
-        iniciarMemoria();
-
-        if (memoriaVisit.length() != 0) {
-            // String codigoStr = Integer.toString(codigo);
-            inicio = memoriaVisit.indexOf(rg);
-
-            if (inicio != -1) {
-                ultimo = memoriaVisit.indexOf("\t", inicio);
-                rg = memoriaVisit.substring(inicio, ultimo);
-                primeiro = ultimo + 1;
-                ultimo = memoriaVisit.indexOf("\t", primeiro);
-                nome = memoriaVisit.substring(primeiro, ultimo);
-                primeiro = ultimo + 1;
-                ultimo = memoriaVisit.indexOf("\t", primeiro);
-                sexo = memoriaVisit.substring(primeiro, ultimo);
-                primeiro = ultimo + 1;
-                ultimo = memoriaVisit.indexOf("\t", primeiro);
-                idade = memoriaVisit.substring(primeiro, ultimo);
-                primeiro = ultimo + 1;
-                ultimo = memoriaVisit.indexOf("\t", primeiro);
-                parentesco = memoriaVisit.substring(primeiro, ultimo);
-                primeiro = ultimo + 1;
-                ultimo = memoriaVisit.indexOf("\t", primeiro);
-                ala = memoriaVisit.substring(primeiro, ultimo);
-                primeiro = ultimo + 1;
-                ultimo = memoriaVisit.indexOf("\t", primeiro);
-                setor = memoriaVisit.substring(primeiro, ultimo);
-                primeiro = ultimo + 1;
-                ultimo = memoriaVisit.indexOf("\t", primeiro);
-                cela = memoriaVisit.substring(primeiro, ultimo);
-                primeiro = ultimo + 1;
-                fim = memoriaVisit.indexOf("\n", primeiro);
-                crDeten = memoriaVisit.substring(primeiro, fim);
-
-                //CONVERTENDO AS STRINGS PARA INT
-                int idadeInt = Integer.parseInt(idade);
-                int crDetenInt = Integer.parseInt(crDeten);
-                Visitante pesquisa = new Visitante(parentesco, nome, idadeInt, rg, sexo, ala, setor, cela, crDetenInt);
-                return pesquisa;
             } else {
-                JOptionPane.showMessageDialog(null, "RG não cadastrado!");
-                return null;
+                cadVisita.add(new Visitante(parentesco, nome, idadeInt, rg, sexo, ala, setor, cela, crDetentoInt));
+                leitura.limparArqVisitas();
+                escreveBufferVisit.write(toStringVisit());
+                escreveBufferVisit.flush();
+                escreveBufferVisit.close();
+                JOptionPane.showMessageDialog(null, "Cadastro Realizado com Sucesso!");
             }
 
         } else {
-            JOptionPane.showMessageDialog(null, "Não existem visitantes cadastrados!");
-            return null;
+            cadVisita.add(new Visitante(parentesco, nome, idadeInt, rg, sexo, ala, setor, cela, crDetentoInt));
+            leitura.limparArqVisitas();
+            escreveBufferVisit.write(toStringVisit());
+            escreveBufferVisit.flush();
+            escreveBufferVisit.close();
+            JOptionPane.showMessageDialog(null, "Cadastro Realizado com Sucesso!");
+        }
+    }
+
+    // FUNÇÃO PARA CONVERTER UMA STRING EM BOOLEAN
+    public static boolean converterBool(String convert) {
+        if (convert.equalsIgnoreCase("SIM")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    //CADASTRO DE DETENTOS
+    public void cadastroDetento(String crime, String condenacao, String tempoPena, String nome, String idade, String rg, String sexo,
+            String ala, String setor, String cela) throws IOException {
+
+        BufferedWriter escreveBufferDeten;
+        escreveBufferDeten = new BufferedWriter(new FileWriter("CadastroDetento.txt", true));
+
+        //CONVERSÃO DAS VARIAVEIS PARA O TIPO DOS ATRIBUTOS DO OBJETO 
+        int tempPena = Integer.parseInt(tempoPena);
+        int idadeInt = Integer.parseInt(idade);
+        boolean conden = converterBool(condenacao);
+
+        LerArquivo leitura = new LerArquivo();
+        cadDetento = leitura.lerArquivoDetento();
+
+        if (cadDetento.size() != 0) {
+            boolean achou = false;
+
+            for (int i = 0; i < cadDetento.size(); i++) {
+                if (cadDetento.get(i).getRg().equals(rg)) {
+                    achou = true;
+                }
+            }
+
+            if (achou) {
+                JOptionPane.showMessageDialog(null, "Já existe em nosso banco de dados um cadastro com este RG");
+
+            } else {
+                cadDetento.add(new Detento(crime, conden, tempPena, nome, idadeInt, rg, sexo, ala, setor, cela));
+                leitura.limparArqDetento();
+                escreveBufferDeten.write(toStringDeten());
+                escreveBufferDeten.flush();
+                escreveBufferDeten.close();
+                JOptionPane.showMessageDialog(null, "Cadastro Realizado com Sucesso!");
+            }
+
+        } else {
+            cadDetento.add(new Detento(crime, conden, tempPena, nome, idadeInt, rg, sexo, ala, setor, cela));
+            leitura.limparArqDetento();
+            escreveBufferDeten.write(toStringDeten());
+            escreveBufferDeten.flush();
+            escreveBufferDeten.close();
+            JOptionPane.showMessageDialog(null, "Cadastro Realizado com Sucesso!");
         }
 
-    }*/
+    }
+
 }

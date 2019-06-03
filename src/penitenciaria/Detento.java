@@ -1,20 +1,20 @@
 package penitenciaria;
 
-public class Presidiario extends Pessoa {
+public class Detento extends Pessoa {
     //static final String 121 = "Homicidio";
 
     private String crime;
     private boolean condenacao;
     private int tempoPena;
 
-    public Presidiario(String crime, boolean condenacao, int tempoPena, String nome, int idade, String rg, String sexo, String ala, String setor, String cela) {
+    public Detento(String crime, boolean condenacao, int tempoPena, String nome, int idade, String rg, String sexo, String ala, String setor, String cela) {
         super(nome, idade, rg, sexo, ala, setor, cela);
         this.crime = crime;
         this.condenacao = condenacao;
         this.tempoPena = tempoPena;
     }
 
-    public Presidiario() {
+    public Detento() {
         super();
         this.crime = "";
         this.condenacao = false;
@@ -47,10 +47,9 @@ public class Presidiario extends Pessoa {
 
     @Override
     public String toString() {
-        return this.getCod_pessoa() + "\t" + this.getNome() + "\t" + this.getSexo() + "\t"
-                + this.getIdade() + "\t" + this.getAla() + "\t" + this.getSetor() + "\t"
-                + this.getCela() + "\t" + this.crime + "\t" + this.condenacao + "\t"
-                + this.tempoPena + "\n";
+        return this.crime + ";" + this.condenacao + ";" + this.tempoPena + ";" + this.getNome() + ";" + this.getIdade() + ";"
+                + this.getRg() + ";" + this.getSexo() + ";" + this.getAla() + ";"
+                + this.getSetor() + ";" + this.getCela() + "\n";
     }
 
 }
