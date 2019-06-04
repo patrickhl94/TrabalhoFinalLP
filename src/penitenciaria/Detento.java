@@ -1,7 +1,6 @@
 package penitenciaria;
 
 public class Detento extends Pessoa {
-    //static final String 121 = "Homicidio";
 
     private String crime;
     private boolean condenacao;

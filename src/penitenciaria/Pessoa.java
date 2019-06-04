@@ -2,8 +2,6 @@ package penitenciaria;
 
 public abstract class Pessoa {
 
-    public static int codgeral = 500;
-
     private String nome;
     private int idade;
     private String rg;
