@@ -81,9 +81,9 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         txtCel = new javax.swing.JTextField();
         txtVerificar = new javax.swing.JButton();
-        txtPar = new javax.swing.JTextField();
         txtAla = new javax.swing.JTextField();
         txtSet = new javax.swing.JTextField();
+        txtPar = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
@@ -261,18 +261,52 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
 
         jLabel14.setText("Nome do Detento");
 
+        txtNomeDeten.setEditable(false);
+        txtNomeDeten.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtNomeDetenMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtNomeDetenMousePressed(evt);
+            }
+        });
+
         jLabel15.setText("Parentesco*");
 
-        jLabel16.setText("Ala Presidio*");
+        jLabel16.setText("Ala Presidio");
 
-        jLabel17.setText("Setor*");
+        jLabel17.setText("Setor");
 
-        jLabel18.setText("Cela*");
+        jLabel18.setText("Cela");
+
+        txtCel.setEditable(false);
+        txtCel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtCelMousePressed(evt);
+            }
+        });
 
         txtVerificar.setText("Verificar");
         txtVerificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtVerificarActionPerformed(evt);
+            }
+        });
+
+        txtAla.setEditable(false);
+        txtAla.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtAlaMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtAlaMousePressed(evt);
+            }
+        });
+
+        txtSet.setEditable(false);
+        txtSet.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtSetMousePressed(evt);
             }
         });
 
@@ -288,11 +322,10 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
                         .addGap(60, 60, 60)
                         .addComponent(jLabel14))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtCrDet)
-                                .addComponent(txtPar, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE))
-                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtCrDet, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPar))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
@@ -366,11 +399,9 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
                 .addComponent(jLabel19)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(293, 293, 293))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(178, 178, 178))
+                .addGap(203, 203, 203))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -385,11 +416,11 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton1)
+                        .addComponent(jButton2))
                     .addComponent(jLabel19))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
-                .addGap(60, 60, 60))
+                .addGap(104, 104, 104))
         );
 
         jScrollPane1.setViewportView(jPanel1);
@@ -448,53 +479,57 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
         try {
             LerArquivo pesquisaDetento = new LerArquivo();
 
-            /* NÃO FUNCIONOU
             int i = 0;
-            
-            while (i < pesquisaDetento.lerArquivoDetento().size() || !txtRg.equals(pesquisaDetento.lerArquivoDetento().get(i).getRg())) {
+            while (i < (pesquisaDetento.lerArquivoDetento().size()) && !txtCrDet.getText().equals(pesquisaDetento.lerArquivoDetento().get(i).getRg())) {
                 i++;
             }
-            
+
             if (i == pesquisaDetento.lerArquivoDetento().size()) {
-                JOptionPane.showMessageDialog(null, "Não existe em nosso banco de dados detento com este código");
+                TelaOpcaoCadastro tela = new TelaOpcaoCadastro();
+                tela.setLocationRelativeTo(null);
+                tela.setVisible(true);
             } else {
                 txtNomeDeten.setText(pesquisaDetento.lerArquivoDetento().get(i).getNome());
                 txtAla.setText(pesquisaDetento.lerArquivoDetento().get(i).getAla());
                 txtCel.setText(pesquisaDetento.lerArquivoDetento().get(i).getCela());
                 txtSet.setText(pesquisaDetento.lerArquivoDetento().get(i).getSetor());
-                
-            }
-            
-        } catch (FileNotFoundException ex) {
-            JOptionPane.showMessageDialog(null, "Erro!");
-        }
-             */
-            
-
-            ArrayList<Pessoa> pesquisa = new ArrayList<Pessoa>();
-            pesquisa = pesquisaDetento.lerArquivoDetento();
-            
-            int i = 0;
-            String codDeten = txtCrDet.getText();
-            while (i < (pesquisa.size() - 1) && !codDeten.equals(pesquisa.get(i).getRg())) {
-                i++;
-            }
-
-            if (i == pesquisaDetento.lerArquivoDetento().size() - 1) {
-                JOptionPane.showMessageDialog(null, "Não existe em nosso banco de dados detento com este código");
-            } else {
-                txtNomeDeten.setText(pesquisaDetento.lerArquivoDetento().get(i).getNome());
-                txtAla.setText(pesquisa.get(i).getAla());
-                txtCel.setText(pesquisa.get(i).getCela());
-                txtSet.setText(pesquisa.get(i).getSetor());
+                JOptionPane.showMessageDialog(null, "Detento encontrado");
 
             }
 
         } catch (FileNotFoundException ex) {
             JOptionPane.showMessageDialog(null, "Erro!");
         }
-
     }//GEN-LAST:event_txtVerificarActionPerformed
+
+    private void txtNomeDetenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNomeDetenMouseClicked
+
+    }//GEN-LAST:event_txtNomeDetenMouseClicked
+
+    private void txtAlaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAlaMouseClicked
+        JOptionPane.showMessageDialog(null, "                     ===== CAMPO NÃO EDITÁVEL! ===== "
+                + "\n DIGITE O CÓDIGO DO DETENTO PARA IMPORTAR SEUS DADOS");
+    }//GEN-LAST:event_txtAlaMouseClicked
+
+    private void txtSetMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSetMousePressed
+        JOptionPane.showMessageDialog(null, "                     ===== CAMPO NÃO EDITÁVEL! ===== "
+                + "\n DIGITE O CÓDIGO DO DETENTO PARA IMPORTAR SEUS DADOS");
+    }//GEN-LAST:event_txtSetMousePressed
+
+    private void txtAlaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAlaMousePressed
+        JOptionPane.showMessageDialog(null, "                     ===== CAMPO NÃO EDITÁVEL! ===== "
+                + "\n DIGITE O CÓDIGO DO DETENTO PARA IMPORTAR SEUS DADOS");
+    }//GEN-LAST:event_txtAlaMousePressed
+
+    private void txtCelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCelMousePressed
+        JOptionPane.showMessageDialog(null, "                     ===== CAMPO NÃO EDITÁVEL! ===== "
+                + "\n DIGITE O CÓDIGO DO DETENTO PARA IMPORTAR SEUS DADOS");
+    }//GEN-LAST:event_txtCelMousePressed
+
+    private void txtNomeDetenMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNomeDetenMousePressed
+        JOptionPane.showMessageDialog(null, "                     ===== CAMPO NÃO EDITÁVEL! ===== "
+                + "\n DIGITE O CÓDIGO DO DETENTO PARA IMPORTAR SEUS DADOS");
+    }//GEN-LAST:event_txtNomeDetenMousePressed
 
     /**/
     /**

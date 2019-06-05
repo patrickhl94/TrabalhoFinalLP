@@ -5,20 +5,26 @@
  */
 package telas;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import penitenciaria.Detento;
+import penitenciaria.LerArquivo;
+import penitenciaria.Pessoa;
+import penitenciaria.Visitante;
 
 /**
  *
  * @author patri
  */
-public class TelaRelatTotPresid extends javax.swing.JFrame {
+public class TelaRelatTotVisit extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaRelatTotPresid
      */
-    public TelaRelatTotPresid() {
+    public TelaRelatTotVisit() {
         initComponents();
     }
 
@@ -42,7 +48,7 @@ public class TelaRelatTotPresid extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Codido Registro", "Nome", "Sexo", "Nascimento", "Ala", "Setor", "Cela", "Crime", "Condenaçãp", "Tempo da Pena"
+                "RG", "Nome", "Sexo", "Idade", "Código Detento", "Parentesco", "Ala", "Setor", "Cela"
             }
         ));
         jScrollPane1.setViewportView(relTabel);
@@ -58,41 +64,42 @@ public class TelaRelatTotPresid extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 629, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(889, Short.MAX_VALUE))
+            .addComponent(jScrollPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(78, 78, 78)
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    static ArrayList<Detento> lista = new ArrayList<>();
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         DefaultTableModel tabela = (DefaultTableModel) relTabel.getModel();
 
-       // lista.add(new Presidiario("Homicidio", true, 20, "Paulo", 1994, 123132,
-              //  "Masculino", "Masculina", "Norte", "MN0008"));
-       // lista.add(new Presidiario("rOUBO", true, 28, "lUCAS", 1997, 123132,
-        //        "Masculino", "Masculina", "lESTE", "ML0008"));
+        try {
+            LerArquivo dadosTabela = new LerArquivo();
+            ArrayList<Pessoa> lista = new ArrayList<>();
 
-        //CODIGO PARA ADCIONAR OS DADOS NA TABELA
-//        for (Detento pres : lista) {
-//            tabela.addRow(new Object[]{
-//                pres.getCod_pessoa(), pres.getNome(), pres.getSexo(), pres.getIdade(),
-//                pres.getAla(), pres.getSetor(), pres.getCela(), pres.getCrime(),
-//                pres.isCondenacao(), pres.getTempoPena()});
-//        }
+            lista = dadosTabela.lerArquivoVisitas();
+            
+            for (int i = 0; i < lista.size(); i++) {
+                tabela.addRow(new Object[]{lista.get(i).getRg(), lista.get(i).getNome(), lista.get(i).getSexo(), lista.get(i).getIdade(),
+                    "xxxxx", "xxxxx", lista.get(i).getAla(), lista.get(i).getSetor(), lista.get(i).getCela()});
+            }
+
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Erro! Arquivo não encontrado");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -112,20 +119,21 @@ public class TelaRelatTotPresid extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaRelatTotPresid.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaRelatTotVisit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaRelatTotPresid.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaRelatTotVisit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaRelatTotPresid.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaRelatTotVisit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaRelatTotPresid.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaRelatTotVisit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaRelatTotPresid().setVisible(true);
+                new TelaRelatTotVisit().setVisible(true);
             }
         });
     }

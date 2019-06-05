@@ -6,8 +6,8 @@ public class ControleVisitas extends Cadastro{
 
     private ArrayList<Visitante> visitas;
 
-    public ControleVisitas(ArrayList<Visitante> visitas) {
-        this.visitas = visitas;
+    public ControleVisitas() {
+        this.visitas = new ArrayList<>();
     }
 
     public Visitante getVisitas(int indice) {
@@ -32,6 +32,7 @@ public class ControleVisitas extends Cadastro{
             this.visitas.add(novo);
             return true;
         } else {
+            
             return false;
         }
     }

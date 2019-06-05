@@ -110,7 +110,7 @@ public class Cadastro {
             }
 
             if (achou) {
-                JOptionPane.showMessageDialog(null, "Já existe em nosso banco de dados um cadastro com este RG");
+                JOptionPane.showMessageDialog(null, "Já existe em nosso banco de dados um cadastro com este Código de Detento");
 
             } else {
                 cadDetento.add(new Detento(crime, conden, tempPena, nome, idadeInt, rg, sexo, ala, setor, cela));

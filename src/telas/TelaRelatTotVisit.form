@@ -23,12 +23,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jScrollPane1" alignment="0" pref="629" max="32767" attributes="0"/>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="889" max="32767" attributes="0"/>
           </Group>
+          <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -36,8 +36,8 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="71" max="32767" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="429" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="608" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -53,17 +53,16 @@
         <Component class="javax.swing.JTable" name="relTabel">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="10" rowCount="0">
-                <Column editable="true" title="Codido Registro" type="java.lang.Object"/>
+              <Table columnCount="9" rowCount="0">
+                <Column editable="true" title="RG" type="java.lang.Object"/>
                 <Column editable="true" title="Nome" type="java.lang.Object"/>
                 <Column editable="true" title="Sexo" type="java.lang.Object"/>
-                <Column editable="true" title="Nascimento" type="java.lang.Object"/>
+                <Column editable="true" title="Idade" type="java.lang.Object"/>
+                <Column editable="true" title="C&#xf3;digo Detento" type="java.lang.Object"/>
+                <Column editable="true" title="Parentesco" type="java.lang.Object"/>
                 <Column editable="true" title="Ala" type="java.lang.Object"/>
                 <Column editable="true" title="Setor" type="java.lang.Object"/>
                 <Column editable="true" title="Cela" type="java.lang.Object"/>
-                <Column editable="true" title="Crime" type="java.lang.Object"/>
-                <Column editable="true" title="Condena&#xe7;&#xe3;p" type="java.lang.Object"/>
-                <Column editable="true" title="Tempo da Pena" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
