@@ -39,8 +39,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        btnMenuTotDetentos = new javax.swing.JMenuItem();
+        btnRelTotVisit = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
@@ -125,13 +125,23 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons8-arquivo-16.png"))); // NOI18N
         jMenu4.setText("Relatórios");
 
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/relatorio08_px.png"))); // NOI18N
-        jMenuItem3.setText("Total Presidiarios");
-        jMenu4.add(jMenuItem3);
+        btnMenuTotDetentos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/relatorio08_px.png"))); // NOI18N
+        btnMenuTotDetentos.setText("Total Presidiarios");
+        btnMenuTotDetentos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuTotDetentosActionPerformed(evt);
+            }
+        });
+        jMenu4.add(btnMenuTotDetentos);
 
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/relatorio08_px.png"))); // NOI18N
-        jMenuItem4.setText("Total Visitantes");
-        jMenu4.add(jMenuItem4);
+        btnRelTotVisit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/relatorio08_px.png"))); // NOI18N
+        btnRelTotVisit.setText("Total Visitantes");
+        btnRelTotVisit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRelTotVisitActionPerformed(evt);
+            }
+        });
+        jMenu4.add(btnRelTotVisit);
 
         jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/relatorio08_px.png"))); // NOI18N
         jMenuItem5.setText("Presidiarios / Sexo");
@@ -208,7 +218,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         TelaSobre tela = new TelaSobre();
         tela.setLocationRelativeTo(null);
         tela.setVisible(true);
-        //telacentro.setLocationRelativeTo(null);
 
     }//GEN-LAST:event_itemSobreActionPerformed
 
@@ -233,6 +242,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tela.setLocationRelativeTo(null);
         tela.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void btnMenuTotDetentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuTotDetentosActionPerformed
+        TelaRelatTotDet tela = new TelaRelatTotDet();
+        tela.setLocationRelativeTo(null);
+        tela.setVisible(true);
+    }//GEN-LAST:event_btnMenuTotDetentosActionPerformed
+
+    private void btnRelTotVisitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRelTotVisitActionPerformed
+        TelaRelatTotVisit tela = new TelaRelatTotVisit();
+        tela.setLocationRelativeTo(null);
+        tela.setVisible(true);
+    }//GEN-LAST:event_btnRelTotVisitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -274,6 +295,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem btnMenuTotDetentos;
+    private javax.swing.JMenuItem btnRelTotVisit;
     private javax.swing.JMenuItem itemSobre;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -287,8 +310,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;

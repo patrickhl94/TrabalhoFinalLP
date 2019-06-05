@@ -87,6 +87,7 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
 
         jLabel12.setText("jLabel12");
 
@@ -390,6 +391,13 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
 
         jLabel19.setText("( * ) Preenchimento obrigatorio");
 
+        jButton3.setText("Detentos Cadastrados");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -401,7 +409,9 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(203, 203, 203))
+                .addGap(18, 18, 18)
+                .addComponent(jButton3)
+                .addGap(28, 28, 28))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -418,7 +428,8 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton1)
-                        .addComponent(jButton2))
+                        .addComponent(jButton2)
+                        .addComponent(jButton3))
                     .addComponent(jLabel19))
                 .addGap(104, 104, 104))
         );
@@ -531,6 +542,12 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
                 + "\n DIGITE O CÓDIGO DO DETENTO PARA IMPORTAR SEUS DADOS");
     }//GEN-LAST:event_txtNomeDetenMousePressed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        TelaRelatTotDet tela = new TelaRelatTotDet();
+        tela.setLocationRelativeTo(null);
+        tela.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**/
     /**
      * @param args the command line arguments
@@ -562,7 +579,6 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                // new TelaCadastroVisit().setVisible(true);
                 TelaCadastroVisit tela = new TelaCadastroVisit();
                 tela.setLocationRelativeTo(null);
                 tela.setVisible(true);
@@ -573,6 +589,7 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;

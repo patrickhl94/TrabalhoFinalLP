@@ -11,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import penitenciaria.Detento;
 import penitenciaria.LerArquivo;
 import penitenciaria.Pessoa;
 import penitenciaria.Visitante;
@@ -19,28 +20,28 @@ import penitenciaria.Visitante;
  *
  * @author patri
  */
-public class TelaRelatTotVisit extends javax.swing.JFrame {
+public class TelaRelatTotDet extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaRelatTotPresid
      */
-    //CODIGO INSERIDO NO CONSTRUTOR, PARA ASSIM QUE ABRIR ESSA TELA, A TABELA JA SEJA TODA PREENCHIDA
-    public TelaRelatTotVisit() {
+    public TelaRelatTotDet() {
         initComponents();
 
+        //CODIGO INSERIDO NO CONSTRUTOR, PARA ASSIM QUE ABRIR ESSA TELA, A TABELA JA SEJA TODA PREENCHIDA
         DefaultTableModel tabela = (DefaultTableModel) relTabel.getModel();
 
         try {
             LerArquivo dadosTabela = new LerArquivo();
             ArrayList<Pessoa> lista = new ArrayList<>();
 
-            lista = dadosTabela.lerArquivoVisitas();
+            lista = dadosTabela.lerArquivoDetento();
 
             for (Pessoa pess : lista) {
-                if (pess instanceof Visitante) {
-                    Visitante visit = (Visitante) pess;
-                    tabela.addRow(new Object[]{visit.getRg(), visit.getNome(), visit.getSexo(), visit.getIdade(),
-                        visit.getCrDetento(), visit.getParentesco(), visit.getAla(), visit.getSetor(), visit.getCela()});
+                if (pess instanceof Detento) {
+                    Detento deten = (Detento) pess;
+                    tabela.addRow(new Object[]{deten.getRg(), deten.getNome(), deten.getSexo(), deten.getIdade(),
+                        deten.getAla(), deten.getSetor(), deten.getCela(), deten.getCrime(), deten.isCondenacao(), deten.getTempoPena()});
                 }
             }
 
@@ -64,25 +65,36 @@ public class TelaRelatTotVisit extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        relTabel.setForeground(new java.awt.Color(0, 0, 0));
         relTabel.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "RG", "Nome", "Sexo", "Idade", "Código Detento", "Parentesco", "Ala", "Setor", "Cela"
+                "Código Detento", "Nome", "Sexo", "Idade", "Ala", "Setor", "Cela", "Crime", "Possui Condenação?", "Tempo Pena"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(relTabel);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons8-primeiro-plano-do-grupo-selecionado-filled-16.png"))); // NOI18N
-        jLabel1.setText("Relatório de Visitantes cadastrados");
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons8-algemas-filled-16.png"))); // NOI18N
+        jLabel1.setText("Relatório de Detentos Cadastrados");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 982, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1064, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
@@ -90,11 +102,11 @@ public class TelaRelatTotVisit extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(13, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -118,21 +130,23 @@ public class TelaRelatTotVisit extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaRelatTotVisit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaRelatTotDet.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaRelatTotVisit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaRelatTotDet.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaRelatTotVisit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaRelatTotDet.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaRelatTotVisit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaRelatTotDet.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaRelatTotVisit().setVisible(true);
+                new TelaRelatTotDet().setVisible(true);
             }
         });
     }
