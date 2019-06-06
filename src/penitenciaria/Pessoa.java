@@ -26,7 +26,6 @@ public abstract class Pessoa {
         this.idade = 0;
         this.setor = "";
         this.nome = "";
-        // this.cod_pessoa = 0;
         this.sexo = "";
 
     }
