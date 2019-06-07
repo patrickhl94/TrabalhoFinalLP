@@ -76,6 +76,33 @@ public class Cadastro {
         }
     }
 
+    public void atualizaVisit(String nome, String idade, String rg, String sexo, String ala, String setor,
+            String cela, String crDetento, String parentesco) throws IOException {
+
+        BufferedWriter escreveBufferVisit;
+        escreveBufferVisit = new BufferedWriter(new FileWriter("CadastroVisita.txt", true));
+
+        //CONVERSÃO DAS VARIAVEIS PARA O TIPO DOS ATRIBUTOS DO OBJETO 
+        int idadeInt = Integer.parseInt(idade);
+        int crDetentoInt = Integer.parseInt(crDetento);
+
+        LerArquivo leitura = new LerArquivo();
+        cadVisita = leitura.lerArquivoVisitas();
+
+        for (int i = 0; i < cadVisita.size(); i++) {
+            if (cadVisita.get(i).getRg().equals(rg)) {
+                cadVisita.remove(i);
+            }
+        }
+        cadVisita.add(new Visitante(parentesco, nome, idadeInt, rg, sexo, ala, setor, cela, crDetentoInt));
+        leitura.limparArqVisitas();
+        escreveBufferVisit.write(toStringVisit());
+        escreveBufferVisit.flush();
+        escreveBufferVisit.close();
+        JOptionPane.showMessageDialog(null, "Atualização Realizada com Sucesso!");
+
+    }
+
     // FUNÇÃO PARA CONVERTER UMA STRING EM BOOLEAN
     public static boolean converterBool(String convert) {
         if (convert.equalsIgnoreCase("SIM")) {

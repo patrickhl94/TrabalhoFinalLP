@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
 import penitenciaria.Cadastro;
 import penitenciaria.LerArquivo;
 import penitenciaria.Pessoa;
+import penitenciaria.Visitante;
 
 /**
  *
@@ -84,10 +85,15 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
         txtAla = new javax.swing.JTextField();
         txtSet = new javax.swing.JTextField();
         txtPar = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
+        jLabel19 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jButton5 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jLabel19 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
 
         jLabel12.setText("jLabel12");
 
@@ -176,7 +182,7 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                                         .addGap(137, 137, 137)
-                                        .addComponent(jComboBox3, 0, 147, Short.MAX_VALUE))
+                                        .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                                         .addComponent(jLabel4)
                                         .addGap(103, 103, 103)
@@ -287,7 +293,7 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
             }
         });
 
-        txtVerificar.setText("Verificar");
+        txtVerificar.setText("Importar");
         txtVerificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtVerificarActionPerformed(evt);
@@ -308,6 +314,13 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
         txtSet.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 txtSetMousePressed(evt);
+            }
+        });
+
+        jButton3.setText("Detentos Cadastrados");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
             }
         });
 
@@ -339,13 +352,13 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
                                     .addComponent(txtSet, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtCel, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel18))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtVerificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(txtNomeDeten, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 10, Short.MAX_VALUE)))))
+                                    .addComponent(jLabel18)
+                                    .addComponent(txtCel, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                                    .addComponent(txtVerificar, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton3)))
+                            .addComponent(txtNomeDeten, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -355,7 +368,7 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
                     .addComponent(jLabel14))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCrDet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNomeDeten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -364,16 +377,64 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
                     .addComponent(jLabel17)
                     .addComponent(jLabel18)
                     .addComponent(jLabel16)
-                    .addComponent(jLabel15))
+                    .addComponent(jLabel15)
+                    .addComponent(txtVerificar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(txtCel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtSet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtVerificar)
                     .addComponent(txtAla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(19, Short.MAX_VALUE))
+                    .addComponent(txtPar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
+
+        jLabel19.setText("( * ) Preenchimento obrigatorio");
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jButton5.setText("Atualizar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("Importar Visitante");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jLabel1.setText("Atualizar dados Visitante");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel1)
+                    .addComponent(jButton5)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton5)
+                .addGap(10, 10, 10))
+        );
+
+        jPanel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jButton1.setText("Cadastrar Visitante");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -389,14 +450,26 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
             }
         });
 
-        jLabel19.setText("( * ) Preenchimento obrigatorio");
-
-        jButton3.setText("Detentos Cadastrados");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -404,19 +477,18 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel19)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton3)
-                .addGap(28, 28, 28))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel19)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(16, 16, 16))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -424,14 +496,13 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton1)
-                        .addComponent(jButton2)
-                        .addComponent(jButton3))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel19))
-                .addGap(104, 104, 104))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jScrollPane1.setViewportView(jPanel1);
@@ -440,15 +511,101 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 681, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 519, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 606, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        try {
+            LerArquivo pesquisaVisit = new LerArquivo();
+            ArrayList<Pessoa> atualiza = new ArrayList<>();
+            atualiza = pesquisaVisit.lerArquivoVisitas();
+
+            for (Pessoa pess : atualiza) {
+                if (pess instanceof Visitante) {
+                    Visitante novo = (Visitante) pess;
+                    if (txtRg.getText().equalsIgnoreCase(novo.getRg())) {
+                        txtNome.setText(novo.getNome());
+                        String idadeString = Integer.toString(novo.getIdade());
+                        txtIda.setText(idadeString);
+                        String crDetenString = Integer.toString(novo.getCrDetento());
+                        txtCrDet.setText(crDetenString);
+                        txtPar.setText(novo.getParentesco());
+                        txtAla.setText(novo.getAla());
+                        txtSet.setText(novo.getSetor());
+                        txtCel.setText(novo.getCela());
+                        JOptionPane.showMessageDialog(null, "rodou");
+                    }
+                }
+            }
+
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Erro!");
+        }
+
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+
+        try {
+            LerArquivo pesquisaVisit = new LerArquivo();
+            ArrayList<Pessoa> atualiza = new ArrayList<>();
+            atualiza = pesquisaVisit.lerArquivoVisitas();
+
+            for (int i = 0; i < atualiza.size(); i++) {
+                if (atualiza.get(i).getRg().equals(txtRg.getText())) {
+                    atualiza.remove(i);
+
+                    //COPIAMOS O CODIGO DO METODO QUE DA AÇÃO AO BOTÃO CADASTRAR, TENDO EM VISTA QUE NÃO CONSEGUIMOS CHAMAR O METODO DO BOTÃO
+                    String nome = txtNome.getText();
+                    String rg = txtRg.getText();
+                    String idade = txtIda.getText();
+                    String sexo = txtSex.getSelectedItem().toString();
+                    String ala = txtAla.getText();
+                    String setor = txtSet.getText();
+                    String cela = txtCel.getText();
+                    String crDetento = txtCrDet.getText();
+                    String parentesco = txtPar.getText();
+
+                    if (!nome.equals("") && !rg.equals("") && !idade.equals("") && !sexo.equals("Selecione")
+                        && !ala.equals("") && !setor.equals("") && !cela.equals("") && !crDetento.equals("")
+                        && !parentesco.equals("")) {
+                        Cadastro cadas = new Cadastro();
+
+                        try {
+                            cadas.atualizaVisit(nome, idade, rg, sexo, ala, setor, cela, crDetento, parentesco);
+
+                        } catch (IOException ex) {
+                            JOptionPane.showMessageDialog(null, "Erro!");
+
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Existem campos obrigatórios em branco.");
+                    }
+
+                }
+
+            }
+
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Erro!");
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        TelaRelatTotDet tela = new TelaRelatTotDet();
+        tela.setLocationRelativeTo(null);
+        tela.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -467,8 +624,8 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
         String parentesco = txtPar.getText();
 
         if (!nome.equals("") && !rg.equals("") && !idade.equals("") && !sexo.equals("Selecione")
-                && !ala.equals("Selecione") && !setor.equals("Selecione") && !cela.equals("") && !crDetento.equals("")
-                && !parentesco.equals("Selecione")) {
+            && !ala.equals("") && !setor.equals("") && !cela.equals("") && !crDetento.equals("")
+            && !parentesco.equals("")) {
             Cadastro cadas = new Cadastro();
 
             try {
@@ -482,8 +639,22 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Existem campos obrigatórios em branco.");
         }
 
-
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtSetMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSetMousePressed
+        JOptionPane.showMessageDialog(null, "                     ===== CAMPO NÃO EDITÁVEL! ===== "
+            + "\n DIGITE O CÓDIGO DO DETENTO PARA IMPORTAR SEUS DADOS");
+    }//GEN-LAST:event_txtSetMousePressed
+
+    private void txtAlaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAlaMousePressed
+        JOptionPane.showMessageDialog(null, "                     ===== CAMPO NÃO EDITÁVEL! ===== "
+            + "\n DIGITE O CÓDIGO DO DETENTO PARA IMPORTAR SEUS DADOS");
+    }//GEN-LAST:event_txtAlaMousePressed
+
+    private void txtAlaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAlaMouseClicked
+        JOptionPane.showMessageDialog(null, "                     ===== CAMPO NÃO EDITÁVEL! ===== "
+            + "\n DIGITE O CÓDIGO DO DETENTO PARA IMPORTAR SEUS DADOS");
+    }//GEN-LAST:event_txtAlaMouseClicked
 
     private void txtVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVerificarActionPerformed
 
@@ -513,40 +684,19 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtVerificarActionPerformed
 
-    private void txtNomeDetenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNomeDetenMouseClicked
-
-    }//GEN-LAST:event_txtNomeDetenMouseClicked
-
-    private void txtAlaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAlaMouseClicked
-        JOptionPane.showMessageDialog(null, "                     ===== CAMPO NÃO EDITÁVEL! ===== "
-                + "\n DIGITE O CÓDIGO DO DETENTO PARA IMPORTAR SEUS DADOS");
-    }//GEN-LAST:event_txtAlaMouseClicked
-
-    private void txtSetMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSetMousePressed
-        JOptionPane.showMessageDialog(null, "                     ===== CAMPO NÃO EDITÁVEL! ===== "
-                + "\n DIGITE O CÓDIGO DO DETENTO PARA IMPORTAR SEUS DADOS");
-    }//GEN-LAST:event_txtSetMousePressed
-
-    private void txtAlaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAlaMousePressed
-        JOptionPane.showMessageDialog(null, "                     ===== CAMPO NÃO EDITÁVEL! ===== "
-                + "\n DIGITE O CÓDIGO DO DETENTO PARA IMPORTAR SEUS DADOS");
-    }//GEN-LAST:event_txtAlaMousePressed
-
     private void txtCelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCelMousePressed
         JOptionPane.showMessageDialog(null, "                     ===== CAMPO NÃO EDITÁVEL! ===== "
-                + "\n DIGITE O CÓDIGO DO DETENTO PARA IMPORTAR SEUS DADOS");
+            + "\n DIGITE O CÓDIGO DO DETENTO PARA IMPORTAR SEUS DADOS");
     }//GEN-LAST:event_txtCelMousePressed
 
     private void txtNomeDetenMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNomeDetenMousePressed
         JOptionPane.showMessageDialog(null, "                     ===== CAMPO NÃO EDITÁVEL! ===== "
-                + "\n DIGITE O CÓDIGO DO DETENTO PARA IMPORTAR SEUS DADOS");
+            + "\n DIGITE O CÓDIGO DO DETENTO PARA IMPORTAR SEUS DADOS");
     }//GEN-LAST:event_txtNomeDetenMousePressed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        TelaRelatTotDet tela = new TelaRelatTotDet();
-        tela.setLocationRelativeTo(null);
-        tela.setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void txtNomeDetenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNomeDetenMouseClicked
+
+    }//GEN-LAST:event_txtNomeDetenMouseClicked
 
     /**/
     /**
@@ -590,12 +740,15 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JFormattedTextField jFormattedTextField2;
     private javax.swing.JFormattedTextField jFormattedTextField4;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -617,7 +770,9 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
