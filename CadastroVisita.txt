@@ -4,4 +4,4 @@ Filho;sssss;22;123478;Masculino;Feminina;Sul;A1244;1227
 Pai;LUANA;89;1452;Masculino;Masculina;Norte;a4545;1234
 irmão;Patrick;55;249695;Masculino;Masculina;Norte;1;1
 Amigo;Miqueias Andrade;27;999888;Masculino;Masculina;Norte;1;1
-Amigo;FERNANDA;99;1234;Masculino;Masculina;Norte;1;1
+Amiga;FERNANDA;18;1234;Feminino;Masculina;Norte;a4545;1227

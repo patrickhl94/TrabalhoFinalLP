@@ -11,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import penitenciaria.LerArquivo;
 import penitenciaria.Pessoa;
 import penitenciaria.Visitante;
@@ -43,6 +44,9 @@ public class TelaRelatTotVisit extends javax.swing.JFrame {
                         visit.getCrDetento(), visit.getParentesco(), visit.getAla(), visit.getSetor(), visit.getCela()});
                 }
             }
+            
+            //CODIGO PARA ORDERNAR A TABELA
+            relTabel.setRowSorter(new TableRowSorter(tabela));
 
         } catch (FileNotFoundException ex) {
             JOptionPane.showMessageDialog(null, "Erro! Arquivo não encontrado");

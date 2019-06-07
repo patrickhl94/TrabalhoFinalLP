@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import penitenciaria.ControleVisitas;
 
 /**
@@ -26,6 +27,8 @@ public class TelaGerenciamentoVisitas extends javax.swing.JFrame {
     public TelaGerenciamentoVisitas() {
         initComponents();
         this.tabela = (DefaultTableModel) tabGerenVisit.getModel();
+        //CODIGO PARA ORDERNAR A TABELA
+        tabGerenVisit.setRowSorter(new TableRowSorter(this.tabela));
     }
 
     /**
@@ -48,12 +51,12 @@ public class TelaGerenciamentoVisitas extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         txtRg = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnRegSaida = new javax.swing.JButton();
+        btnRegEntrada = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+        btnAtualizar = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -69,6 +72,7 @@ public class TelaGerenciamentoVisitas extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("SGP - Gerenciamento de Visitas");
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel2.setText("Gerenciamento de Visitas");
@@ -99,19 +103,19 @@ public class TelaGerenciamentoVisitas extends javax.swing.JFrame {
 
         jLabel1.setText("RG *");
 
-        jButton2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton2.setText("Registrar Saída");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnRegSaida.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnRegSaida.setText("Registrar Saída");
+        btnRegSaida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnRegSaidaActionPerformed(evt);
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton1.setText("Registrar Entrada");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnRegEntrada.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnRegEntrada.setText("Registrar Entrada");
+        btnRegEntrada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnRegEntradaActionPerformed(evt);
             }
         });
 
@@ -126,11 +130,11 @@ public class TelaGerenciamentoVisitas extends javax.swing.JFrame {
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons8-multidão-filled-100.png"))); // NOI18N
 
-        jButton4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton4.setText("Atualizar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnAtualizar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnAtualizar.setText("Atualizar");
+        btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnAtualizarActionPerformed(evt);
             }
         });
 
@@ -141,9 +145,9 @@ public class TelaGerenciamentoVisitas extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRegSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRegEntrada, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(txtRg, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel1Layout.createSequentialGroup()
@@ -169,14 +173,14 @@ public class TelaGerenciamentoVisitas extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtRg, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnRegEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnRegSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(64, 64, 64)
                         .addComponent(jLabel6)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                .addComponent(btnAtualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -229,7 +233,7 @@ public class TelaGerenciamentoVisitas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnRegEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegEntradaActionPerformed
 
         try {
             ControleVisitas controlVisit = new ControleVisitas();
@@ -246,7 +250,7 @@ public class TelaGerenciamentoVisitas extends javax.swing.JFrame {
         }
         lblQuantVisit.setText(Integer.toString(this.tabela.getRowCount()));
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnRegEntradaActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         TelaRelatTotVisit tela = new TelaRelatTotVisit();
@@ -254,7 +258,7 @@ public class TelaGerenciamentoVisitas extends javax.swing.JFrame {
         tela.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnRegSaidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegSaidaActionPerformed
         if (tabGerenVisit.getSelectedRow() != -1) {
 
             this.tabela.removeRow(tabGerenVisit.getSelectedRow());
@@ -264,19 +268,38 @@ public class TelaGerenciamentoVisitas extends javax.swing.JFrame {
         }
 
 
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnRegSaidaActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        if (tabGerenVisit.getSelectedRow() != -1) {
-            TelaCadastroVisit novaTela = new TelaCadastroVisit();
-            novaTela.setLocationRelativeTo(null);
-            novaTela.setVisible(true);
+    private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
+        ControleVisitas controlVisit;
+        try {
 
-        } else {
-            JOptionPane.showMessageDialog(null, "Selecione um visitante da Lista para ATUALIZAR do Presidio");
+            controlVisit = new ControleVisitas();
+
+            if (tabGerenVisit.getSelectedRow() != -1) {
+                String rg = tabGerenVisit.getValueAt(tabGerenVisit.getSelectedRow(), 0).toString();
+                String nome = tabGerenVisit.getValueAt(tabGerenVisit.getSelectedRow(), 1).toString();
+                String idade = tabGerenVisit.getValueAt(tabGerenVisit.getSelectedRow(), 2).toString();
+                String codDetent = tabGerenVisit.getValueAt(tabGerenVisit.getSelectedRow(), 4).toString();
+                String parentesco = tabGerenVisit.getValueAt(tabGerenVisit.getSelectedRow(), 5).toString();
+                String ala = tabGerenVisit.getValueAt(tabGerenVisit.getSelectedRow(), 6).toString();
+                String setor = tabGerenVisit.getValueAt(tabGerenVisit.getSelectedRow(), 7).toString();
+                String cela = tabGerenVisit.getValueAt(tabGerenVisit.getSelectedRow(), 8).toString();
+
+                TelaCadastroVisit novaTela = new TelaCadastroVisit(rg, nome, idade, codDetent,
+                        parentesco, ala, setor, cela);
+                novaTela.setLocationRelativeTo(null);
+                novaTela.setVisible(true);
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Selecione um visitante da Lista para ATUALIZAR do Presidio");
+            }
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Erro");
         }
 
-    }//GEN-LAST:event_jButton4ActionPerformed
+
+    }//GEN-LAST:event_btnAtualizarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -315,10 +338,10 @@ public class TelaGerenciamentoVisitas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnAtualizar;
+    private javax.swing.JButton btnRegEntrada;
+    private javax.swing.JButton btnRegSaida;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -11,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import penitenciaria.Detento;
 import penitenciaria.LerArquivo;
 import penitenciaria.Pessoa;
@@ -42,9 +43,11 @@ public class TelaRelatTotDet extends javax.swing.JFrame {
                     Detento deten = (Detento) pess;
                     tabela.addRow(new Object[]{deten.getRg(), deten.getNome(), deten.getSexo(), deten.getIdade(),
                         deten.getAla(), deten.getSetor(), deten.getCela(), deten.getCrime(), deten.isCondenacao(), deten.getTempoPena()});
-                    
+
                 }
             }
+            //CODIGO PARA ORDERNAR A TABELA
+            relTabel.setRowSorter(new TableRowSorter(tabela));
 
         } catch (FileNotFoundException ex) {
             JOptionPane.showMessageDialog(null, "Erro! Arquivo não encontrado");
@@ -113,7 +116,6 @@ public class TelaRelatTotDet extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
 
     /**
      * @param args the command line arguments

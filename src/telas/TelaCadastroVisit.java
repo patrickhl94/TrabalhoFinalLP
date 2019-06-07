@@ -33,6 +33,19 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
         initComponents();
     }
 
+    public TelaCadastroVisit(String rg, String nome, String idade, String codigoDeten, 
+            String parentesco, String alaPresid, String setor, String cela) {
+        initComponents();
+        txtRg.setText(rg);
+        txtNome.setText(nome);
+        txtIda.setText(idade);
+        txtCrDet.setText(codigoDeten);
+        txtPar.setText(parentesco);
+        txtAla.setText(alaPresid);
+        txtSet.setText(setor);
+        txtCel.setText(cela);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -576,8 +589,8 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
                     String parentesco = txtPar.getText();
 
                     if (!nome.equals("") && !rg.equals("") && !idade.equals("") && !sexo.equals("Selecione")
-                        && !ala.equals("") && !setor.equals("") && !cela.equals("") && !crDetento.equals("")
-                        && !parentesco.equals("")) {
+                            && !ala.equals("") && !setor.equals("") && !cela.equals("") && !crDetento.equals("")
+                            && !parentesco.equals("")) {
                         Cadastro cadas = new Cadastro();
 
                         try {
@@ -623,8 +636,8 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
         String parentesco = txtPar.getText();
 
         if (!nome.equals("") && !rg.equals("") && !idade.equals("") && !sexo.equals("Selecione")
-            && !ala.equals("") && !setor.equals("") && !cela.equals("") && !crDetento.equals("")
-            && !parentesco.equals("")) {
+                && !ala.equals("") && !setor.equals("") && !cela.equals("") && !crDetento.equals("")
+                && !parentesco.equals("")) {
             Cadastro cadas = new Cadastro();
 
             try {
@@ -642,17 +655,17 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
 
     private void txtSetMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSetMousePressed
         JOptionPane.showMessageDialog(null, "                     ===== CAMPO NÃO EDITÁVEL! ===== "
-            + "\n DIGITE O CÓDIGO DO DETENTO PARA IMPORTAR SEUS DADOS");
+                + "\n DIGITE O CÓDIGO DO DETENTO PARA IMPORTAR SEUS DADOS");
     }//GEN-LAST:event_txtSetMousePressed
 
     private void txtAlaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAlaMousePressed
         JOptionPane.showMessageDialog(null, "                     ===== CAMPO NÃO EDITÁVEL! ===== "
-            + "\n DIGITE O CÓDIGO DO DETENTO PARA IMPORTAR SEUS DADOS");
+                + "\n DIGITE O CÓDIGO DO DETENTO PARA IMPORTAR SEUS DADOS");
     }//GEN-LAST:event_txtAlaMousePressed
 
     private void txtAlaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAlaMouseClicked
         JOptionPane.showMessageDialog(null, "                     ===== CAMPO NÃO EDITÁVEL! ===== "
-            + "\n DIGITE O CÓDIGO DO DETENTO PARA IMPORTAR SEUS DADOS");
+                + "\n DIGITE O CÓDIGO DO DETENTO PARA IMPORTAR SEUS DADOS");
     }//GEN-LAST:event_txtAlaMouseClicked
 
     private void txtVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVerificarActionPerformed
@@ -685,12 +698,12 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
 
     private void txtCelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCelMousePressed
         JOptionPane.showMessageDialog(null, "                     ===== CAMPO NÃO EDITÁVEL! ===== "
-            + "\n DIGITE O CÓDIGO DO DETENTO PARA IMPORTAR SEUS DADOS");
+                + "\n DIGITE O CÓDIGO DO DETENTO PARA IMPORTAR SEUS DADOS");
     }//GEN-LAST:event_txtCelMousePressed
 
     private void txtNomeDetenMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNomeDetenMousePressed
         JOptionPane.showMessageDialog(null, "                     ===== CAMPO NÃO EDITÁVEL! ===== "
-            + "\n DIGITE O CÓDIGO DO DETENTO PARA IMPORTAR SEUS DADOS");
+                + "\n DIGITE O CÓDIGO DO DETENTO PARA IMPORTAR SEUS DADOS");
     }//GEN-LAST:event_txtNomeDetenMousePressed
 
     private void txtNomeDetenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNomeDetenMouseClicked
