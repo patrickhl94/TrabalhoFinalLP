@@ -42,6 +42,7 @@ public class TelaRelatTotDet extends javax.swing.JFrame {
                     Detento deten = (Detento) pess;
                     tabela.addRow(new Object[]{deten.getRg(), deten.getNome(), deten.getSexo(), deten.getIdade(),
                         deten.getAla(), deten.getSetor(), deten.getCela(), deten.getCrime(), deten.isCondenacao(), deten.getTempoPena()});
+                    
                 }
             }
 
@@ -64,6 +65,7 @@ public class TelaRelatTotDet extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Relatório Detentos Cadastrados");
 
         relTabel.setForeground(new java.awt.Color(0, 0, 0));
         relTabel.setModel(new javax.swing.table.DefaultTableModel(

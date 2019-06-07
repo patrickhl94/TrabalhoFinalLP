@@ -5,28 +5,17 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import jdk.nashorn.internal.scripts.JO;
+import telas.TelaGerenciamentoVisitas;
 
 public class ControleVisitas extends Cadastro {
 
     private ArrayList<Pessoa> bancoDados = new ArrayList<>();
-    private ArrayList<Visitante> visitas;
 
     public ControleVisitas() throws FileNotFoundException {
         LerArquivo arqTxt = new LerArquivo();
         this.bancoDados = arqTxt.lerArquivoVisitas();
-
-        this.visitas = new ArrayList<>();
-
-    }
-
-    public Pessoa getVisitas(int indice) {
-        return bancoDados.get(indice);
-    }
-
-    public void setVisitas(ArrayList<Pessoa> visitas) {
-        this.bancoDados = visitas;
-
     }
 
     @Override
@@ -38,13 +27,16 @@ public class ControleVisitas extends Cadastro {
     public boolean inserirVisitas(String rg) {
         /*O presidio terá um numero maximo de visitantes por dia, essse valor
             será definido no final do projeto, a principio ficará 5 para testes */
+
         boolean achou = false;
-        if (this.visitas.size() <= 5) {
+        if (TelaGerenciamentoVisitas.tabela.getRowCount() < 5) {
             for (Pessoa pess : this.bancoDados) {
                 if (pess instanceof Visitante) {
                     Visitante novo = (Visitante) pess;
                     if (rg.equalsIgnoreCase(novo.getRg())) {
-                        this.visitas.add(novo);
+                        TelaGerenciamentoVisitas.tabela.addRow(new Object[]{novo.getRg(), novo.getNome(), novo.getIdade(),
+                        novo.getSexo(), novo.getCrDetento(), novo.getParentesco(), novo.getAla(),
+                        novo.getSetor(), novo.getCela()});
                         achou = true;
                     }
                 }
@@ -57,17 +49,15 @@ public class ControleVisitas extends Cadastro {
 
     }
 
-    public boolean retirarVisitante(String rg) {
-        boolean achou = false;
-        for (Visitante pess : this.visitas) {
-            if (rg.equalsIgnoreCase(pess.getRg())) {
-                this.visitas.remove(pess);
-                achou = true;
-            }
-        }
-        return achou;
-    }
-    
-    
+//    public boolean retirarVisitante(String rg) {
+//        boolean achou = false;
+//        for (Visitante pess : this.visitas) {
+//            if (rg.equalsIgnoreCase(pess.getRg())) {
+//                this.visitas.remove(pess);
+//                achou = true;
+//            }
+//        }
+//        return achou;
+//    }
 
 }

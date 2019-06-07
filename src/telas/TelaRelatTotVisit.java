@@ -63,6 +63,7 @@ public class TelaRelatTotVisit extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Relatório Visitantes Cadastrados");
 
         relTabel.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
