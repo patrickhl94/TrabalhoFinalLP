@@ -30,15 +30,47 @@ public class ControleVisitas extends Cadastro {
 
         boolean achou = false;
         if (TelaGerenciamentoVisitas.tabela.getRowCount() < 5) {
+            JOptionPane.showMessageDialog(null, "teste 01");
             for (Pessoa pess : this.bancoDados) {
+                JOptionPane.showMessageDialog(null, "teste 02");
                 if (pess instanceof Visitante) {
                     Visitante novo = (Visitante) pess;
+
                     if (rg.equalsIgnoreCase(novo.getRg())) {
-                        TelaGerenciamentoVisitas.tabela.addRow(new Object[]{novo.getRg(), novo.getNome(), novo.getIdade(),
-                        novo.getSexo(), novo.getCrDetento(), novo.getParentesco(), novo.getAla(),
-                        novo.getSetor(), novo.getCela()});
-                        achou = true;
+                        if (TelaGerenciamentoVisitas.tabela.getRowCount() == 0) {
+                            JOptionPane.showMessageDialog(null, "teste 03");
+                            TelaGerenciamentoVisitas.tabela.addRow(new Object[]{novo.getRg(), novo.getNome(), novo.getIdade(),
+                                novo.getSexo(), novo.getCrDetento(), novo.getParentesco(), novo.getAla(),
+                                novo.getSetor(), novo.getCela()});
+                            achou = true;
+                        } else {
+                            JOptionPane.showMessageDialog(null, "teste 04-1");
+                            int i = 0;
+                            for (int j = 0; j < TelaGerenciamentoVisitas.tabela.getRowCount(); j++) {
+                                if (rg.equals(TelaGerenciamentoVisitas.tabela.getValueAt(j, 0).toString())) {
+                                    JOptionPane.showMessageDialog(null, "Já cadastrado");
+                                } else {
+                                    TelaGerenciamentoVisitas.tabela.addRow(new Object[]{novo.getRg(), novo.getNome(), novo.getIdade(),
+                                        novo.getSexo(), novo.getCrDetento(), novo.getParentesco(), novo.getAla(),
+                                        novo.getSetor(), novo.getCela()});
+                                    achou = true;
+                                    JOptionPane.showMessageDialog(null, "Cadastrado com sucesso");
+                                }
+                            }
+
+                            /* while (i < TelaGerenciamentoVisitas.tabela.getRowCount() && !rg.equals(TelaGerenciamentoVisitas.tabela.getValueAt(i, 0).toString())) {
+                                JOptionPane.showMessageDialog(null, "teste 04");
+                                JOptionPane.showMessageDialog(null, "teste 05");
+
+                                i++;
+                                if (i > TelaGerenciamentoVisitas.tabela.getRowCount()) {
+                                    TelaGerenciamentoVisitas.tabela.addRow(new Object[]{novo.getRg(), novo.getNome(), novo.getIdade(),
+                                        novo.getSexo(), novo.getCrDetento(), novo.getParentesco(), novo.getAla(),
+                                        novo.getSetor(), novo.getCela()}); */
+                        }
+
                     }
+
                 }
             }
             return achou; //NÃO ACHOU, CHAMAR TELA DE CADASTRO
@@ -48,16 +80,5 @@ public class ControleVisitas extends Cadastro {
         }
 
     }
-
-//    public boolean retirarVisitante(String rg) {
-//        boolean achou = false;
-//        for (Visitante pess : this.visitas) {
-//            if (rg.equalsIgnoreCase(pess.getRg())) {
-//                this.visitas.remove(pess);
-//                achou = true;
-//            }
-//        }
-//        return achou;
-//    }
 
 }
