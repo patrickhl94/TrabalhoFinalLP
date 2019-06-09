@@ -1,3 +1,0 @@
-0	JULIANA de silva	Feminino	25	Amigo	123123	Masculina	Norte	4FFD87
-0, PATRICK , Masculino, 25, Amigo, 123456, Feminina, Norte, SA45689, 798465
-0, VIVIANE, Feminino, 25, Amigo, 123456, Feminina, Norte, SA45689, 798465

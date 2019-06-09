@@ -6,3 +6,4 @@ irmão;Patrick;55;249695;Masculino;Masculina;Norte;1;1
 Amigo;Miqueias Andrade;27;999888;Masculino;Masculina;Norte;1;1
 Amiga;VIVIANE;29;789;Feminino;Feminina;Leste;FL025;1228
 Amiga;FERNANDA;24;1234;Feminino;Masculina;Norte;a4545;1234
+Amigo;PAULO;35;456987;Masculino;Masculina;Norte;a4545;1234
