@@ -61,10 +61,9 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="667" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPane1" pref="673" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -98,7 +97,13 @@
                           </Group>
                           <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                      <Component id="jButton5" min="-2" pref="174" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -121,9 +126,13 @@
                               <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                               <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jButton5" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="66" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -453,7 +462,7 @@
                                               <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
                                               <Component id="txtCel" min="-2" pref="81" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace pref="8" max="32767" attributes="0"/>
+                                          <EmptySpace pref="14" max="32767" attributes="0"/>
                                           <Group type="103" groupAlignment="2" attributes="0">
                                               <Component id="txtVerificar" alignment="2" min="-2" pref="139" max="-2" attributes="0"/>
                                               <Component id="jButton3" alignment="2" min="-2" max="-2" attributes="0"/>
@@ -590,6 +599,9 @@
             </Container>
             <Component class="javax.swing.JLabel" name="jLabel19">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Dialog" size="14" style="1"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="( * ) Preenchimento obrigatorio"/>
               </Properties>
             </Component>
@@ -609,8 +621,8 @@
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="2" attributes="0">
                               <Component id="jLabel1" alignment="2" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton5" alignment="2" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton4" alignment="2" min="-2" pref="143" max="-2" attributes="0"/>
+                              <Component id="btnAtualiza" alignment="2" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnImporta" alignment="2" min="-2" pref="143" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                       </Group>
@@ -622,29 +634,29 @@
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="jLabel1" min="-2" pref="16" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jButton4" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnImporta" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton5" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnAtualiza" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JButton" name="jButton5">
+                <Component class="javax.swing.JButton" name="btnAtualiza">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Atualizar"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAtualizaActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton4">
+                <Component class="javax.swing.JButton" name="btnImporta">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Importar Visitante"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnImportaActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel1">
@@ -707,6 +719,14 @@
                 </Component>
               </SubComponents>
             </Container>
+            <Component class="javax.swing.JButton" name="jButton5">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Visitantes Cadastraods"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
       </SubComponents>

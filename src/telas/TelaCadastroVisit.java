@@ -33,9 +33,10 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
         initComponents();
     }
 
-    public TelaCadastroVisit(String rg, String nome, String idade, String codigoDeten, 
-            String parentesco, String alaPresid, String setor, String cela) {
+    public TelaCadastroVisit(String rg, String nome, String idade, String codigoDeten,
+            String parentesco, String alaPresid, String setor, String cela, String sexo) {
         initComponents();
+
         txtRg.setText(rg);
         txtNome.setText(nome);
         txtIda.setText(idade);
@@ -44,6 +45,14 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
         txtAla.setText(alaPresid);
         txtSet.setText(setor);
         txtCel.setText(cela);
+
+        //VERIFICAÇÃO CAIXA DE SELEÇÃO SEXO
+        if (sexo.equals("Masculino")) {
+            txtSex.setSelectedIndex(1);
+        }
+        if (sexo.equals("Feminino")) {
+            txtSex.setSelectedIndex(2);
+        }
     }
 
     /**
@@ -101,12 +110,13 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jButton5 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnAtualiza = new javax.swing.JButton();
+        btnImporta = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
 
         jLabel12.setText("jLabel12");
 
@@ -367,7 +377,7 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel18)
                                     .addComponent(txtCel, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                                     .addComponent(txtVerificar, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jButton3)))
@@ -402,21 +412,22 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
+        jLabel19.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel19.setText("( * ) Preenchimento obrigatorio");
 
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jButton5.setText("Atualizar");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnAtualiza.setText("Atualizar");
+        btnAtualiza.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnAtualizaActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Importar Visitante");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnImporta.setText("Importar Visitante");
+        btnImporta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnImportaActionPerformed(evt);
             }
         });
 
@@ -430,8 +441,8 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel1)
-                    .addComponent(jButton5)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAtualiza)
+                    .addComponent(btnImporta, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17))
         );
         jPanel3Layout.setVerticalGroup(
@@ -440,9 +451,9 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton4)
+                .addComponent(btnImporta)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5)
+                .addComponent(btnAtualiza)
                 .addGap(10, 10, 10))
         );
 
@@ -483,6 +494,13 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
+        jButton5.setText("Visitantes Cadastraods");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -495,7 +513,11 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
                         .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel19)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel19)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -513,8 +535,11 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel19))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel19)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton5)))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         jScrollPane1.setViewportView(jPanel1);
@@ -525,8 +550,7 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 673, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -536,12 +560,13 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnImportaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportaActionPerformed
         try {
             LerArquivo pesquisaVisit = new LerArquivo();
             ArrayList<Pessoa> atualiza = new ArrayList<>();
             atualiza = pesquisaVisit.lerArquivoVisitas();
 
+            boolean achou = false;
             for (Pessoa pess : atualiza) {
                 if (pess instanceof Visitante) {
                     Visitante novo = (Visitante) pess;
@@ -555,18 +580,31 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
                         txtAla.setText(novo.getAla());
                         txtSet.setText(novo.getSetor());
                         txtCel.setText(novo.getCela());
-                        JOptionPane.showMessageDialog(null, "rodou");
+                        //VERIFICAÇÃO CAIXA DE SELEÇÃO SEXO
+                        if (novo.getSexo().equals("Masculino")) {
+                            txtSex.setSelectedIndex(1);
+                        }
+                        if (novo.getSexo().equals("Feminino")) {
+                            txtSex.setSelectedIndex(2);
+                        }
+                        achou = true;
                     }
                 }
+            }
+
+            if (achou) {
+                JOptionPane.showMessageDialog(null, "Visitante encontrado.");
+            } else {
+                JOptionPane.showMessageDialog(null, "Digite um RG cadastrado para atualiza-lo");
             }
 
         } catch (FileNotFoundException ex) {
             JOptionPane.showMessageDialog(null, "Erro!");
         }
 
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btnImportaActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btnAtualizaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizaActionPerformed
 
         try {
             LerArquivo pesquisaVisit = new LerArquivo();
@@ -611,7 +649,7 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
         } catch (FileNotFoundException ex) {
             JOptionPane.showMessageDialog(null, "Erro!");
         }
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_btnAtualizaActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         TelaRelatTotDet tela = new TelaRelatTotDet();
@@ -710,6 +748,12 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
 
     }//GEN-LAST:event_txtNomeDetenMouseClicked
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        TelaRelatTotVisit tela = new TelaRelatTotVisit();
+        tela.setLocationRelativeTo(null);
+        tela.setVisible(true);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
     /**/
     /**
      * @param args the command line arguments
@@ -749,10 +793,11 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAtualiza;
+    private javax.swing.JButton btnImporta;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;

@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import penitenciaria.ControleVisitas;
+import penitenciaria.Visitante;
 
 /**
  *
@@ -238,8 +239,26 @@ public class TelaGerenciamentoVisitas extends javax.swing.JFrame {
         try {
             ControleVisitas controlVisit = new ControleVisitas();
             String rg = txtRg.getText();
-            if (controlVisit.inserirVisitas(rg) == true) {
-                JOptionPane.showMessageDialog(null, "Cadastrado com sucesso");
+            boolean achou = false;
+            Visitante novo = controlVisit.pesquisaVisitas(rg);
+
+            if (novo != null) {
+
+                for (int i = 0; i < this.tabela.getRowCount(); i++) {
+                    if (novo.getRg().equals(this.tabela.getValueAt(i, 0).toString())) {
+                        achou = true;
+                    }
+                }
+
+                if (achou) {
+                    JOptionPane.showMessageDialog(null, "Este visitante já se encontra no presídio");
+                } else {
+                    tabela.addRow(new Object[]{novo.getRg(), novo.getNome(), novo.getIdade(),
+                        novo.getSexo(), novo.getCrDetento(), novo.getParentesco(), novo.getAla(),
+                        novo.getSetor(), novo.getCela()});
+                    JOptionPane.showMessageDialog(null, "Cadastrado com sucesso");
+                }
+
             } else {
                 TelaOpcaoCadastroVisitantes novaTela = new TelaOpcaoCadastroVisitantes();
                 novaTela.setLocationRelativeTo(null);
@@ -248,6 +267,8 @@ public class TelaGerenciamentoVisitas extends javax.swing.JFrame {
         } catch (FileNotFoundException ex) {
             Logger.getLogger(TelaGerenciamentoVisitas.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+        //ATUALIZAÇÃO DA QUANTIDADE DE VISITAS NO PRESÍDIO EM TEMPO REAL
         lblQuantVisit.setText(Integer.toString(this.tabela.getRowCount()));
 
     }//GEN-LAST:event_btnRegEntradaActionPerformed
@@ -280,6 +301,7 @@ public class TelaGerenciamentoVisitas extends javax.swing.JFrame {
                 String rg = tabGerenVisit.getValueAt(tabGerenVisit.getSelectedRow(), 0).toString();
                 String nome = tabGerenVisit.getValueAt(tabGerenVisit.getSelectedRow(), 1).toString();
                 String idade = tabGerenVisit.getValueAt(tabGerenVisit.getSelectedRow(), 2).toString();
+                String sexo = tabGerenVisit.getValueAt(tabGerenVisit.getSelectedRow(), 3).toString();
                 String codDetent = tabGerenVisit.getValueAt(tabGerenVisit.getSelectedRow(), 4).toString();
                 String parentesco = tabGerenVisit.getValueAt(tabGerenVisit.getSelectedRow(), 5).toString();
                 String ala = tabGerenVisit.getValueAt(tabGerenVisit.getSelectedRow(), 6).toString();
@@ -287,7 +309,7 @@ public class TelaGerenciamentoVisitas extends javax.swing.JFrame {
                 String cela = tabGerenVisit.getValueAt(tabGerenVisit.getSelectedRow(), 8).toString();
 
                 TelaCadastroVisit novaTela = new TelaCadastroVisit(rg, nome, idade, codDetent,
-                        parentesco, ala, setor, cela);
+                        parentesco, ala, setor, cela, sexo);
                 novaTela.setLocationRelativeTo(null);
                 novaTela.setVisible(true);
 

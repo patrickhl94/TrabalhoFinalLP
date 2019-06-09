@@ -6,3 +6,4 @@ Feminicidio;false;5;LUANA;32;102030;Feminino;Masculina;Norte;1244
 Feminicidio;false;11;payric;22;1234;Masculino;Masculina;Norte;a4545
 Furto;false;0;fulano;25;1;Masculino;Masculina;Norte;1
 Roubo;false;1;Gilberto;27;252525;Masculino;Masculina;Norte;100
+Roubo;true;6;AMANDA;25;1228;Feminino;Feminina;Leste;FL025
