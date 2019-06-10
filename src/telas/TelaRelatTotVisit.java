@@ -78,7 +78,15 @@ public class TelaRelatTotVisit extends javax.swing.JFrame {
             new String [] {
                 "RG", "Nome", "Sexo", "Idade", "Código Detento", "Parentesco", "Ala", "Setor", "Cela"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(relTabel);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
