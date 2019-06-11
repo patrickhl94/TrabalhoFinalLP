@@ -548,7 +548,6 @@ public class TelaCadastroDetento extends javax.swing.JFrame {
                     String setor = txtSetor.getSelectedItem().toString();
                     String cela = txtCela.getText();
                     String condenacao = txtConde.getSelectedItem().toString();
-                    JOptionPane.showMessageDialog(null, condenacao);
                     String crime = txtCrime.getSelectedItem().toString();
                     String tempPena = txtPena.getText();
 
@@ -591,7 +590,6 @@ public class TelaCadastroDetento extends javax.swing.JFrame {
                         String temPena = Integer.toString(novo.getTempoPena());
                         txtPena.setText(temPena);
                         txtCela.setText(novo.getCela());
-                        
 
                         //VERIFICAÇÃO DA CAIXA DE SELEÇÃO DO SETOR
                         if (novo.getSetor().equals("Norte")) {
@@ -655,7 +653,8 @@ public class TelaCadastroDetento extends javax.swing.JFrame {
                         //VERIFICAÇÃO DA CAIXA DE SELEÇÃO POSSUI CONDENAÇÃO
                         if (novo.getCondenacao().equalsIgnoreCase("SIM")) {
                             txtConde.setSelectedIndex(1);
-                        } if(novo.getCondenacao().equalsIgnoreCase("NAO")) {
+                        }
+                        if (novo.getCondenacao().equalsIgnoreCase("NAO")) {
                             txtConde.setSelectedIndex(2);
                         }
                         achou = true;

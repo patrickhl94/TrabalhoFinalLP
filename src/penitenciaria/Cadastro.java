@@ -10,17 +10,9 @@ public class Cadastro {
     public ArrayList<Pessoa> cadDetento = new ArrayList<>();
 
     //VERIFICAR COM A PROFESSORA SE É POSSIVEL UTILIZAR ESSE TOSTRING PARA OS DOIS ARRAYS
-    public String toStringVisit() {
+    public String toString(ArrayList<Pessoa> cad) {
         String aux = "";
-        for (Pessoa p : this.cadVisita) {
-            aux += p.toString();
-        }
-        return aux;
-    }
-
-    public String toStringDeten() {
-        String aux = "";
-        for (Pessoa p : this.cadDetento) {
+        for (Pessoa p : cad) {
             aux += p.toString();
         }
         return aux;
@@ -56,7 +48,7 @@ public class Cadastro {
             } else {
                 this.cadVisita.add(new Visitante(parentesco, nome, idadeInt, rg, sexo, ala, setor, cela, crDetentoInt));
                 leitura.limparArqVisitas();
-                escreveBufferVisit.write(toStringVisit());
+                escreveBufferVisit.write(toString(this.cadVisita));
                 escreveBufferVisit.flush();
                 escreveBufferVisit.close();
                 JOptionPane.showMessageDialog(null, "Cadastro Realizado com Sucesso!");
@@ -65,7 +57,7 @@ public class Cadastro {
         } else {
             this.cadVisita.add(new Visitante(parentesco, nome, idadeInt, rg, sexo, ala, setor, cela, crDetentoInt));
             leitura.limparArqVisitas();
-            escreveBufferVisit.write(toStringVisit());
+            escreveBufferVisit.write(toString(this.cadVisita));
             escreveBufferVisit.flush();
             escreveBufferVisit.close();
             JOptionPane.showMessageDialog(null, "Cadastro Realizado com Sucesso!");
@@ -92,7 +84,7 @@ public class Cadastro {
         }
         this.cadVisita.add(new Visitante(parentesco, nome, idadeInt, rg, sexo, ala, setor, cela, crDetentoInt));
         leitura.limparArqVisitas();
-        escreveBufferVisit.write(toStringVisit());
+        escreveBufferVisit.write(toString(this.cadVisita));
         escreveBufferVisit.flush();
         escreveBufferVisit.close();
         JOptionPane.showMessageDialog(null, "Atualização Realizada com Sucesso!");
@@ -128,7 +120,7 @@ public class Cadastro {
             } else {
                 this.cadDetento.add(new Detento(crime, condenacao, tempPena, nome, idadeInt, rg, sexo, ala, setor, cela));
                 leitura.limparArqDetento();
-                escreveBufferDeten.write(toStringDeten());
+                escreveBufferDeten.write(toString(this.cadDetento));
                 escreveBufferDeten.flush();
                 escreveBufferDeten.close();
                 JOptionPane.showMessageDialog(null, "Cadastro Realizado com Sucesso!");
@@ -137,7 +129,7 @@ public class Cadastro {
         } else {
             this.cadDetento.add(new Detento(crime, condenacao, tempPena, nome, idadeInt, rg, sexo, ala, setor, cela));
             leitura.limparArqDetento();
-            escreveBufferDeten.write(toStringDeten());
+            escreveBufferDeten.write(toString(this.cadDetento));
             escreveBufferDeten.flush();
             escreveBufferDeten.close();
             JOptionPane.showMessageDialog(null, "Cadastro Realizado com Sucesso!");
@@ -166,10 +158,10 @@ public class Cadastro {
 
         this.cadDetento.add(new Detento(crime, condenacao, tempoPena, nome, idadeInt, codDeten, sexo, ala, setor, cela));
         leitura.limparArqDetento();
-        escreveBufferDeten.write(toStringDeten());
+        escreveBufferDeten.write(toString(this.cadDetento));
         escreveBufferDeten.flush();
         escreveBufferDeten.close();
-        JOptionPane.showMessageDialog(null, "Atualização Detento Realizada com Sucesso!");
+        JOptionPane.showMessageDialog(null, "Atualização Realizada com Sucesso!");
 
     }
 }

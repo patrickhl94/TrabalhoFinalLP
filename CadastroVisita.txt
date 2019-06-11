@@ -4,3 +4,4 @@ IRMÃO;JULIANO ;35;1235;Masculino;Masculina;Norte;MN025;1234
 AMIGA;LARISSA;20;1236;Feminino;Feminina;Leste;FL095;1237
 ESPOSA;MAURA;39;1237;Feminino;Masculina;Leste;ML025;1235
 PAI;PETER;30;1238;Masculino;Feminina;Leste;FL095;1237
+NAMORADO;MARIANA SILVA;25;1239;Feminino;Masculina;Leste;MO125;1236
