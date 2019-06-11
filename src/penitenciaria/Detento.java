@@ -2,10 +2,12 @@ package penitenciaria;
 
 public class Detento extends Pessoa {
 
+    //CONSTRUTORES
     private String crime;
     private String condenacao;
     private int tempoPena;
 
+    //CONSTRUTOR PADRAO
     public Detento(String crime, String condenacao, int tempoPena, String nome, int idade, String rg, String sexo, String ala, String setor, String cela) {
         super(nome, idade, rg, sexo, ala, setor, cela);
         this.crime = crime;
@@ -13,6 +15,7 @@ public class Detento extends Pessoa {
         this.tempoPena = tempoPena;
     }
 
+    //CONSTRUTOR VAZIO
     public Detento() {
         super();
         this.crime = "";
@@ -20,6 +23,7 @@ public class Detento extends Pessoa {
         this.tempoPena = 0;
     }
 
+    //GETS E SETS
     public String getCrime() {
         return crime;
     }
@@ -44,6 +48,7 @@ public class Detento extends Pessoa {
         this.tempoPena = tempoPena;
     }
 
+    //TO STRING SEPARADOS POR ; PARA GRAVAR EM ARQUIVO TXT
     @Override
     public String toString() {
         return this.crime + ";" + this.condenacao + ";" + this.tempoPena + ";" + this.getNome() + ";" + this.getIdade() + ";"

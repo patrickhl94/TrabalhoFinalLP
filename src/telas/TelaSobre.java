@@ -51,7 +51,7 @@ public class TelaSobre extends javax.swing.JFrame {
         jLabel2.setText("<html> Este sistema é um trabalho de faculdade da disciplina\nLinguagem de Programação, ministrada pela Profª Cintya, do \nCentro Universitario FAESA, e desenvolvido pelos alunos:\n\n");
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel3.setText("<html>Mariah Malheiros<br><br>\nMiqueias Andrade<br><br>\nPatrick Lima<br><br>\nViviane Rofman<br><br>\n</html> ");
+        jLabel3.setText("<html>Mariah Malheiros<br><br>\nMiqueias Andrade<br><br>\nPatrick Lima<br><br>\nViviane Hoffmann<br><br>\n</html> ");
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/github-logo-128px.png"))); // NOI18N
 
@@ -108,7 +108,6 @@ public class TelaSobre extends javax.swing.JFrame {
 
     private void btngitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngitActionPerformed
         try {
-            // TODO add your handling code here:
             URI link = new URI("https://github.com/patrickhl94/TrabalhoFinalLP.git");
             Desktop.getDesktop().browse(link);
         } catch (URISyntaxException | IOException ex) {
@@ -147,8 +146,6 @@ public class TelaSobre extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                //new TelaSobre2().setVisible(true);
-                //iniciar formulario no meio da tela
                 TelaSobre telacentro = new TelaSobre();
                 telacentro.setLocationRelativeTo(null);
                 telacentro.setVisible(true);

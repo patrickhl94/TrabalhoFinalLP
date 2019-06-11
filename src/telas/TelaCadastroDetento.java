@@ -522,8 +522,8 @@ public class TelaCadastroDetento extends javax.swing.JFrame {
             try {
                 cadas.cadastroDetento(crime, conden, pena, nome, idade, rg, sexo,
                         ala, setor, cela);
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Erro!");
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(null, "Erro ao abrir, ou fechar arquivo");
             }
         } else {
             JOptionPane.showMessageDialog(null, "Existem campos obrigatórios em branco.");
@@ -560,14 +560,14 @@ public class TelaCadastroDetento extends javax.swing.JFrame {
                             cadas.atualizaDetento(nome, codDeten, idade, sexo, ala, setor, cela, condenacao, crime, tempPena);
 
                         } catch (IOException ex) {
-                            JOptionPane.showMessageDialog(null, "Erro!");
+                            JOptionPane.showMessageDialog(null, "Erro ao abrir, ou fechar arquivo");
 
                         }
                     }
                 }
             }
         } catch (FileNotFoundException ex) {
-            JOptionPane.showMessageDialog(null, "Erro!");
+            JOptionPane.showMessageDialog(null, "Arquivo não encontrado");
         }
 
     }//GEN-LAST:event_btnAtualizaActionPerformed
@@ -668,7 +668,7 @@ public class TelaCadastroDetento extends javax.swing.JFrame {
             }
 
         } catch (FileNotFoundException ex) {
-            JOptionPane.showMessageDialog(null, "Erro!");
+            JOptionPane.showMessageDialog(null, "Arquivo não encontrado");
         }
     }//GEN-LAST:event_btnImportaActionPerformed
 

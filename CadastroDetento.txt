@@ -3,3 +3,4 @@ Roubo;NAO;15;JULIANO ;29;1235;Masculino;Masculina;Leste;ML025
 Roubo;NAO;48;JULIANA;19;1237;Feminino;Feminina;Leste;FL095
 Homicidio;NAO;80;FABIANO;39;1236;Masculino;Masculina;Leste;MO125
 Trafico de Entorpecentes;SIM;255;PABLO SCOBAR ;45;3216;Masculino;Masculina;Norte;MN541
+Homicidio;SIM;350;MIQUEIAS ANDRADE;58;1238;Masculino;Masculina;Norte;MN052

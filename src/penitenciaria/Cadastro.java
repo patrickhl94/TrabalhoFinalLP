@@ -6,10 +6,14 @@ import javax.swing.JOptionPane;
 
 public class Cadastro {
 
+    /* ATRIBUTOS DO TIPO PESSOA, CRIADO UM ATRIBUTO PARA VISITANTE E UM PARA DETENTOS, TENDO EM VISTA QUE ELES SÃO 
+    USADOS EM MAIS DE UM METODO*/
     public ArrayList<Pessoa> cadVisita = new ArrayList<>();
     public ArrayList<Pessoa> cadDetento = new ArrayList<>();
 
-    //VERIFICAR COM A PROFESSORA SE É POSSIVEL UTILIZAR ESSE TOSTRING PARA OS DOIS ARRAYS
+    /* TO STRING QUE SERÁ UTILIZADO PARA CADASTRAR O ARRAYLIST NO DOCUMENTO TXT
+    RECEBE POR PARAMETRO UM OBJETO DO TIPO ARRAYLIST QUE SERÁ O cadDetento OU cadVisita, INICIA UM
+    FOR, ONDE A VARIAVEL aux IRÁ RECEBER A CADA LOOP O TOSTRING DO OBJETO PASSADO PELO ATRIBUTO*/
     public String toString(ArrayList<Pessoa> cad) {
         String aux = "";
         for (Pessoa p : cad) {
@@ -18,8 +22,8 @@ public class Cadastro {
         return aux;
     }
 
-//    METODO PARA CADASTRAR VISITANTES QUE IRA SER CHAMADA DO JFRAME TelaCadastroVisit,
-//    QUE IRÁ PASSAR POR PARAMETRO OS DADOS OBTIDOS PELA TELA.
+    /* METODO PARA CADASTRAR VISITANTES QUE IRA SER CHAMADA DO JFRAME TelaCadastroVisit,
+    QUE IRÁ RECEBER POR PARAMETRO OS DADOS OBTIDOS PELA TELA. */
     public void cadastroVisitante(String nome, String idade, String rg, String sexo, String ala, String setor,
             String cela, String crDetento, String parentesco) throws FileNotFoundException, IOException {
 
@@ -30,6 +34,8 @@ public class Cadastro {
         int idadeInt = Integer.parseInt(idade);
         int crDetentoInt = Integer.parseInt(crDetento);
 
+        /* INSTANCIA UM OBJETO DA CLASSE LerArquivo, E ATRIBUI O RETORNO DO METODO lerArquivoVisitas AO ATRIBUTO
+        cadVisita*/
         LerArquivo leitura = new LerArquivo();
         cadVisita = leitura.lerArquivoVisitas();
 
@@ -64,6 +70,7 @@ public class Cadastro {
         }
     }
 
+    /*METODO PARA ATUALIZAR */
     public void atualizaVisit(String nome, String idade, String rg, String sexo, String ala, String setor,
             String cela, String crDetento, String parentesco) throws IOException {
 
