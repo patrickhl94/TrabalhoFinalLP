@@ -1,9 +1,4 @@
-Feminicidio;false;11;LUCAS;25;12242;Masculino;Masculina;Norte;A124
-Furto;false;11;BRUNA;25;1227;Feminino;Feminina;Sul;A1244
-Furto;false;11;MARIO;25;12287;Masculino;Feminina;Sul;A1244
-Feminicidio;false;7;LARTE;29;8527;Masculino;Masculina;Norte;MN44
-Feminicidio;false;5;LUANA;32;102030;Feminino;Masculina;Norte;1244
-Feminicidio;false;11;payric;22;1234;Masculino;Masculina;Norte;a4545
-Furto;false;0;fulano;25;1;Masculino;Masculina;Norte;1
-Roubo;false;1;Gilberto;27;252525;Masculino;Masculina;Norte;100
-Roubo;true;6;AMANDA;25;1228;Feminino;Feminina;Leste;FL025
+Porte de Arma de Fogo;SIM;25;PATRICK;25;1234;Masculino;Masculina;Norte;MN025
+Roubo;NAO;15;JULIANO ;29;1235;Masculino;Masculina;Leste;ML025
+Roubo;NAO;48;JULIANA;19;1237;Feminino;Feminina;Leste;FL095
+Homicidio;NAO;80;FABIANO;39;1236;Masculino;Masculina;Leste;MO125

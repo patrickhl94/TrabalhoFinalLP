@@ -6,6 +6,7 @@
 package telas;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import penitenciaria.Cadastro;
@@ -530,7 +531,46 @@ public class TelaCadastroDetento extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnAtualizaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizaActionPerformed
-        // TODO add your handling code here:
+
+        try {
+            LerArquivo pesquisaDeten = new LerArquivo();
+            ArrayList<Pessoa> atualiza = new ArrayList<>();
+            atualiza = pesquisaDeten.lerArquivoDetento();
+
+            for (int i = 0; i < atualiza.size(); i++) {
+                if (atualiza.get(i).getRg().equals(txtCodDet.getText())) {
+                    atualiza.remove(i);
+                    String nome = txtNome.getText();
+                    String codDeten = txtCodDet.getText();
+                    String idade = txtIdade.getText();
+                    String sexo = txtSexo.getSelectedItem().toString();
+                    String ala = txtAla.getSelectedItem().toString();
+                    String setor = txtSetor.getSelectedItem().toString();
+                    String cela = txtCela.getText();
+                    String condenacao = txtConde.getSelectedItem().toString();
+                    JOptionPane.showMessageDialog(null, condenacao);
+                    String crime = txtCrime.getSelectedItem().toString();
+                    String tempPena = txtPena.getText();
+
+                    if (!nome.equals("") && !codDeten.equals("") && !idade.equals("") && !sexo.equals("Selecione")
+                            && !ala.equals("Selecione") && !setor.equals("Selecione") && !cela.equals("") && !crime.equals("")
+                            && !tempPena.equals("") && !condenacao.equals("Selecione")) {
+                        Cadastro cadas = new Cadastro();
+
+                        try {
+                            cadas.atualizaDetento(nome, codDeten, idade, sexo, ala, setor, cela, condenacao, crime, tempPena);
+
+                        } catch (IOException ex) {
+                            JOptionPane.showMessageDialog(null, "Erro!");
+
+                        }
+                    }
+                }
+            }
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Erro!");
+        }
+
     }//GEN-LAST:event_btnAtualizaActionPerformed
 
     private void btnImportaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportaActionPerformed
@@ -551,6 +591,7 @@ public class TelaCadastroDetento extends javax.swing.JFrame {
                         String temPena = Integer.toString(novo.getTempoPena());
                         txtPena.setText(temPena);
                         txtCela.setText(novo.getCela());
+                        
 
                         //VERIFICAÇÃO DA CAIXA DE SELEÇÃO DO SETOR
                         if (novo.getSetor().equals("Norte")) {
@@ -612,9 +653,9 @@ public class TelaCadastroDetento extends javax.swing.JFrame {
                         }
 
                         //VERIFICAÇÃO DA CAIXA DE SELEÇÃO POSSUI CONDENAÇÃO
-                        if (novo.isCondenacao()) {
+                        if (novo.getCondenacao().equalsIgnoreCase("SIM")) {
                             txtConde.setSelectedIndex(1);
-                        } else {
+                        } if(novo.getCondenacao().equalsIgnoreCase("NAO")) {
                             txtConde.setSelectedIndex(2);
                         }
                         achou = true;
@@ -622,7 +663,7 @@ public class TelaCadastroDetento extends javax.swing.JFrame {
                 }
             }
             if (achou) {
-                JOptionPane.showMessageDialog(null, "Visitante encontrado.");
+                JOptionPane.showMessageDialog(null, "Detento encontrado.");
             } else {
                 JOptionPane.showMessageDialog(null, "Digite um RG cadastrado para atualiza-lo");
             }

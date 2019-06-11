@@ -65,15 +65,6 @@ public class CadastroCinthia {
         }
     }
 
-    // FUNÇÃO PARA CONVERTER UMA STRING EM BOOLEAN
-    public static boolean converterBool(String convert) {
-        if (convert.equalsIgnoreCase("SIM")) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     //CADASTRO DE DETENTOS
     public void cadastroDetento(String crime, String condenacao, String tempoPena, String nome, String idade, String rg, String sexo,
             String ala, String setor, String cela) throws IOException {
@@ -84,7 +75,6 @@ public class CadastroCinthia {
         //CONVERSÃO DAS VARIAVEIS PARA O TIPO DOS ATRIBUTOS DO OBJETO 
         int tempPena = Integer.parseInt(tempoPena);
         int idadeInt = Integer.parseInt(idade);
-        boolean conden = converterBool(condenacao);
 
         LerArquivo leitura = new LerArquivo();
         cadDetento = leitura.lerArquivoDetento();
@@ -102,7 +92,7 @@ public class CadastroCinthia {
                 JOptionPane.showMessageDialog(null, "Já existe em nosso banco de dados um cadastro com este Código de Detento");
 
             } else {
-                cadDetento.add(new Detento(crime, conden, tempPena, nome, idadeInt, rg, sexo, ala, setor, cela));
+                cadDetento.add(new Detento(crime, condenacao, tempPena, nome, idadeInt, rg, sexo, ala, setor, cela));
                 leitura.limparArqDetento();
                 escreveBufferDeten.write(toString(this.cadDetento));
                 escreveBufferDeten.flush();
@@ -111,7 +101,7 @@ public class CadastroCinthia {
             }
 
         } else {
-            cadDetento.add(new Detento(crime, conden, tempPena, nome, idadeInt, rg, sexo, ala, setor, cela));
+            cadDetento.add(new Detento(crime, condenacao, tempPena, nome, idadeInt, rg, sexo, ala, setor, cela));
             leitura.limparArqDetento();
             escreveBufferDeten.write(toString(this.cadDetento));
             escreveBufferDeten.flush();

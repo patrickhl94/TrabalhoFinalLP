@@ -236,36 +236,41 @@ public class TelaGerenciamentoVisitas extends javax.swing.JFrame {
 
     private void btnRegEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegEntradaActionPerformed
 
-        try {
-            ControleVisitas controlVisit = new ControleVisitas();
-            String rg = txtRg.getText();
-            boolean achou = false;
-            Visitante novo = controlVisit.pesquisaVisitas(rg);
+        if (this.tabela.getRowCount() < 5) {
 
-            if (novo != null) {
+            try {
+                ControleVisitas controlVisit = new ControleVisitas();
+                String rg = txtRg.getText();
+                boolean achou = false;
+                Visitante novo = controlVisit.pesquisaVisitas(rg);
 
-                for (int i = 0; i < this.tabela.getRowCount(); i++) {
-                    if (novo.getRg().equals(this.tabela.getValueAt(i, 0).toString())) {
-                        achou = true;
+                if (novo != null) {
+
+                    for (int i = 0; i < this.tabela.getRowCount(); i++) {
+                        if (novo.getRg().equals(this.tabela.getValueAt(i, 0).toString())) {
+                            achou = true;
+                        }
                     }
-                }
 
-                if (achou) {
-                    JOptionPane.showMessageDialog(null, "Este visitante já se encontra no presídio");
+                    if (achou) {
+                        JOptionPane.showMessageDialog(null, "Este visitante já se encontra no presídio");
+                    } else {
+                        tabela.addRow(new Object[]{novo.getRg(), novo.getNome(), novo.getIdade(),
+                            novo.getSexo(), novo.getCrDetento(), novo.getParentesco(), novo.getAla(),
+                            novo.getSetor(), novo.getCela()});
+                        JOptionPane.showMessageDialog(null, "Cadastrado com sucesso");
+                    }
+
                 } else {
-                    tabela.addRow(new Object[]{novo.getRg(), novo.getNome(), novo.getIdade(),
-                        novo.getSexo(), novo.getCrDetento(), novo.getParentesco(), novo.getAla(),
-                        novo.getSetor(), novo.getCela()});
-                    JOptionPane.showMessageDialog(null, "Cadastrado com sucesso");
+                    TelaOpcaoCadastroVisitantes novaTela = new TelaOpcaoCadastroVisitantes();
+                    novaTela.setLocationRelativeTo(null);
+                    novaTela.setVisible(true);
                 }
-
-            } else {
-                TelaOpcaoCadastroVisitantes novaTela = new TelaOpcaoCadastroVisitantes();
-                novaTela.setLocationRelativeTo(null);
-                novaTela.setVisible(true);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(TelaGerenciamentoVisitas.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(TelaGerenciamentoVisitas.class.getName()).log(Level.SEVERE, null, ex);
+        } else {
+            JOptionPane.showMessageDialog(null, "Presídio Lotado!");
         }
 
         //ATUALIZAÇÃO DA QUANTIDADE DE VISITAS NO PRESÍDIO EM TEMPO REAL

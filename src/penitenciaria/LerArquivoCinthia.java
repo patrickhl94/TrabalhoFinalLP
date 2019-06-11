@@ -61,9 +61,8 @@ public class LerArquivoCinthia {
         dados = linha.split(";");
         int idadeInt = Integer.parseInt(dados[4]);
         int tempPena = Integer.parseInt(dados[2]);
-        boolean conden = Cadastro.converterBool(dados[1]);
 
-        return (new Detento(dados[0], conden, tempPena, dados[3], idadeInt, dados[5],
+        return (new Detento(dados[0], dados[1], tempPena, dados[3], idadeInt, dados[5],
                 dados[6], dados[7], dados[8], dados[9]));
     }
 

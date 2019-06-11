@@ -2,12 +2,6 @@ package penitenciaria;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-import jdk.nashorn.internal.scripts.JO;
-import telas.TelaGerenciamentoVisitas;
 
 public class ControleVisitas extends Cadastro {
 
@@ -28,13 +22,12 @@ public class ControleVisitas extends Cadastro {
         /*O presidio terá um numero maximo de visitantes por dia, essse valor
             será definido no final do projeto, a principio ficará 5 para testes */
 
-        Visitante novo = null;
+        Visitante novo;
         for (Pessoa pess : this.bancoDados) {
             if (pess instanceof Visitante) {
-
                 novo = (Visitante) pess;
-                if (rg.equalsIgnoreCase(novo.getRg())) {
 
+                if (rg.equalsIgnoreCase(novo.getRg())) {
                     return novo;
                 }
             }

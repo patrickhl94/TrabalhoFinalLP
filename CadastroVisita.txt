@@ -1,10 +1,6 @@
-Amigo;MARIA;24;12347;Feminino;Masculina;Norte;A4545;124
-Filho;JOAO;24;78451;Masculino;Feminina;Sul;A4545;124
-Filho;sssss;22;123478;Masculino;Feminina;Sul;A1244;1227
-Pai;LUANA;89;1452;Masculino;Masculina;Norte;a4545;1234
-irmão;Patrick;55;249695;Masculino;Masculina;Norte;1;1
-Amigo;Miqueias Andrade;27;999888;Masculino;Masculina;Norte;1;1
-Amiga;VIVIANE;29;789;Feminino;Feminina;Leste;FL025;1228
-Amiga;FERNANDA;24;1234;Feminino;Masculina;Norte;a4545;1234
-Amigo;PAULO;35;456987;Masculino;Masculina;Norte;a4545;1234
-Pai;MOISES;35;15479;Masculino;Masculina;Norte;a4545;1234
+AMIGO;FERNANDA;24;1234;Feminino;Masculina;Norte;1;1
+PAI;PAULO;24;7854;Masculino;Masculina;Norte;a4545;1234
+IRMÃO;JULIANO ;35;1235;Masculino;Masculina;Norte;MN025;1234
+AMIGA;LARISSA;20;1236;Feminino;Feminina;Leste;FL095;1237
+ESPOSA;MAURA;39;1237;Feminino;Masculina;Leste;ML025;1235
+PAI;PETER;30;1238;Masculino;Feminina;Leste;FL095;1237

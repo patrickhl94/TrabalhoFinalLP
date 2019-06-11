@@ -7,15 +7,12 @@ package telas;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import penitenciaria.Detento;
 import penitenciaria.LerArquivo;
 import penitenciaria.Pessoa;
-import penitenciaria.Visitante;
 
 /**
  *
@@ -42,7 +39,7 @@ public class TelaRelatTotDet extends javax.swing.JFrame {
                 if (pess instanceof Detento) {
                     Detento deten = (Detento) pess;
                     tabela.addRow(new Object[]{deten.getRg(), deten.getNome(), deten.getSexo(), deten.getIdade(),
-                        deten.getAla(), deten.getSetor(), deten.getCela(), deten.getCrime(), deten.isCondenacao(), deten.getTempoPena()});
+                        deten.getAla(), deten.getSetor(), deten.getCela(), deten.getCrime(), deten.getCondenacao(), deten.getTempoPena()});
 
                 }
             }

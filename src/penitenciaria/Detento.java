@@ -3,10 +3,10 @@ package penitenciaria;
 public class Detento extends Pessoa {
 
     private String crime;
-    private boolean condenacao;
+    private String condenacao;
     private int tempoPena;
 
-    public Detento(String crime, boolean condenacao, int tempoPena, String nome, int idade, String rg, String sexo, String ala, String setor, String cela) {
+    public Detento(String crime, String condenacao, int tempoPena, String nome, int idade, String rg, String sexo, String ala, String setor, String cela) {
         super(nome, idade, rg, sexo, ala, setor, cela);
         this.crime = crime;
         this.condenacao = condenacao;
@@ -16,7 +16,7 @@ public class Detento extends Pessoa {
     public Detento() {
         super();
         this.crime = "";
-        this.condenacao = false;
+        this.condenacao = "";
         this.tempoPena = 0;
     }
 
@@ -28,12 +28,12 @@ public class Detento extends Pessoa {
         this.crime = crime;
     }
 
-    public boolean isCondenacao() {
+    public String getCondenacao() {
         return condenacao;
     }
 
-    public void setCondenacao(boolean pena) {
-        this.condenacao = pena;
+    public void setCondenacao(String condenacao) {
+        this.condenacao = condenacao;
     }
 
     public int getTempoPena() {

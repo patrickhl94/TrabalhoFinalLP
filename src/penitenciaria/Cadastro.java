@@ -1,11 +1,7 @@
 package penitenciaria;
 
-import java.awt.HeadlessException;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class Cadastro {
@@ -16,7 +12,7 @@ public class Cadastro {
     //VERIFICAR COM A PROFESSORA SE É POSSIVEL UTILIZAR ESSE TOSTRING PARA OS DOIS ARRAYS
     public String toStringVisit() {
         String aux = "";
-        for (Pessoa p : cadVisita) {
+        for (Pessoa p : this.cadVisita) {
             aux += p.toString();
         }
         return aux;
@@ -24,7 +20,7 @@ public class Cadastro {
 
     public String toStringDeten() {
         String aux = "";
-        for (Pessoa p : cadDetento) {
+        for (Pessoa p : this.cadDetento) {
             aux += p.toString();
         }
         return aux;
@@ -45,11 +41,11 @@ public class Cadastro {
         LerArquivo leitura = new LerArquivo();
         cadVisita = leitura.lerArquivoVisitas();
 
-        if (cadVisita.size() != 0) {
+        if (!this.cadVisita.isEmpty()) {
             boolean achou = false;
 
-            for (int i = 0; i < cadVisita.size(); i++) {
-                if (cadVisita.get(i).getRg().equals(rg)) {
+            for (int i = 0; i < this.cadVisita.size(); i++) {
+                if (this.cadVisita.get(i).getRg().equals(rg)) {
                     achou = true;
                 }
             }
@@ -58,7 +54,7 @@ public class Cadastro {
                 JOptionPane.showMessageDialog(null, "Já existe em nosso banco de dados um cadastro com este RG");
 
             } else {
-                cadVisita.add(new Visitante(parentesco, nome, idadeInt, rg, sexo, ala, setor, cela, crDetentoInt));
+                this.cadVisita.add(new Visitante(parentesco, nome, idadeInt, rg, sexo, ala, setor, cela, crDetentoInt));
                 leitura.limparArqVisitas();
                 escreveBufferVisit.write(toStringVisit());
                 escreveBufferVisit.flush();
@@ -67,7 +63,7 @@ public class Cadastro {
             }
 
         } else {
-            cadVisita.add(new Visitante(parentesco, nome, idadeInt, rg, sexo, ala, setor, cela, crDetentoInt));
+            this.cadVisita.add(new Visitante(parentesco, nome, idadeInt, rg, sexo, ala, setor, cela, crDetentoInt));
             leitura.limparArqVisitas();
             escreveBufferVisit.write(toStringVisit());
             escreveBufferVisit.flush();
@@ -87,29 +83,20 @@ public class Cadastro {
         int crDetentoInt = Integer.parseInt(crDetento);
 
         LerArquivo leitura = new LerArquivo();
-        cadVisita = leitura.lerArquivoVisitas();
+        this.cadVisita = leitura.lerArquivoVisitas();
 
-        for (int i = 0; i < cadVisita.size(); i++) {
-            if (cadVisita.get(i).getRg().equals(rg)) {
-                cadVisita.remove(i);
+        for (int i = 0; i < this.cadVisita.size(); i++) {
+            if (this.cadVisita.get(i).getRg().equals(rg)) {
+                this.cadVisita.remove(i);
             }
         }
-        cadVisita.add(new Visitante(parentesco, nome, idadeInt, rg, sexo, ala, setor, cela, crDetentoInt));
+        this.cadVisita.add(new Visitante(parentesco, nome, idadeInt, rg, sexo, ala, setor, cela, crDetentoInt));
         leitura.limparArqVisitas();
         escreveBufferVisit.write(toStringVisit());
         escreveBufferVisit.flush();
         escreveBufferVisit.close();
         JOptionPane.showMessageDialog(null, "Atualização Realizada com Sucesso!");
 
-    }
-
-    // FUNÇÃO PARA CONVERTER UMA STRING EM BOOLEAN
-    public static boolean converterBool(String convert) {
-        if (convert.equalsIgnoreCase("SIM")) {
-            return true;
-        } else {
-            return false;
-        }
     }
 
     //CADASTRO DE DETENTOS
@@ -122,16 +109,15 @@ public class Cadastro {
         //CONVERSÃO DAS VARIAVEIS PARA O TIPO DOS ATRIBUTOS DO OBJETO 
         int tempPena = Integer.parseInt(tempoPena);
         int idadeInt = Integer.parseInt(idade);
-        boolean conden = converterBool(condenacao);
 
         LerArquivo leitura = new LerArquivo();
         cadDetento = leitura.lerArquivoDetento();
 
-        if (cadDetento.size() != 0) {
+        if (!this.cadDetento.isEmpty()) {
             boolean achou = false;
 
             for (int i = 0; i < cadDetento.size(); i++) {
-                if (cadDetento.get(i).getRg().equals(rg)) {
+                if (this.cadDetento.get(i).getRg().equals(rg)) {
                     achou = true;
                 }
             }
@@ -140,7 +126,7 @@ public class Cadastro {
                 JOptionPane.showMessageDialog(null, "Já existe em nosso banco de dados um cadastro com este Código de Detento");
 
             } else {
-                cadDetento.add(new Detento(crime, conden, tempPena, nome, idadeInt, rg, sexo, ala, setor, cela));
+                this.cadDetento.add(new Detento(crime, condenacao, tempPena, nome, idadeInt, rg, sexo, ala, setor, cela));
                 leitura.limparArqDetento();
                 escreveBufferDeten.write(toStringDeten());
                 escreveBufferDeten.flush();
@@ -149,7 +135,7 @@ public class Cadastro {
             }
 
         } else {
-            cadDetento.add(new Detento(crime, conden, tempPena, nome, idadeInt, rg, sexo, ala, setor, cela));
+            this.cadDetento.add(new Detento(crime, condenacao, tempPena, nome, idadeInt, rg, sexo, ala, setor, cela));
             leitura.limparArqDetento();
             escreveBufferDeten.write(toStringDeten());
             escreveBufferDeten.flush();
@@ -159,4 +145,31 @@ public class Cadastro {
 
     }
 
+    public void atualizaDetento(String nome, String codDeten, String idade, String sexo, String ala, String setor, String cela,
+            String condenacao, String crime, String tempPena) throws IOException {
+
+        BufferedWriter escreveBufferDeten;
+        escreveBufferDeten = new BufferedWriter(new FileWriter("CadastroDetento.txt", true));
+
+        //CONVERSÃO DAS VARIAVEIS PARA O TIPO DOS ATRIBUTOS DO OBJETO 
+        int idadeInt = Integer.parseInt(idade);
+        int tempoPena = Integer.parseInt(tempPena);
+
+        LerArquivo leitura = new LerArquivo();
+        this.cadDetento = leitura.lerArquivoDetento();
+
+        for (int i = 0; i < this.cadDetento.size(); i++) {
+            if (this.cadDetento.get(i).getRg().equals(codDeten)) {
+                this.cadDetento.remove(i);
+            }
+        }
+
+        this.cadDetento.add(new Detento(crime, condenacao, tempoPena, nome, idadeInt, codDeten, sexo, ala, setor, cela));
+        leitura.limparArqDetento();
+        escreveBufferDeten.write(toStringDeten());
+        escreveBufferDeten.flush();
+        escreveBufferDeten.close();
+        JOptionPane.showMessageDialog(null, "Atualização Detento Realizada com Sucesso!");
+
+    }
 }

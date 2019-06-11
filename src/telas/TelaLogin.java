@@ -122,7 +122,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // TODO add your handling code here:
         if (txtLogin.getText().equalsIgnoreCase("usuario01")
-                && txtSenha.getText().equals("usuario01")) {
+                && txtSenha.getText().equals("teste")) {
             JOptionPane.showMessageDialog(null, "Bem Vindo!");
             TelaPrincipal tela = new TelaPrincipal();
             tela.setLocationRelativeTo(null);

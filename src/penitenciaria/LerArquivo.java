@@ -1,14 +1,12 @@
 package penitenciaria;
 
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-import javax.swing.JOptionPane;
 
 public class LerArquivo {
 
@@ -75,9 +73,8 @@ public class LerArquivo {
         dados = linha.split(";");
         int idadeInt = Integer.parseInt(dados[4]);
         int tempPena = Integer.parseInt(dados[2]);
-        boolean conden = Cadastro.converterBool(dados[1]);
 
-        return (new Detento(dados[0], conden, tempPena, dados[3], idadeInt, dados[5],
+        return (new Detento(dados[0], dados[1], tempPena, dados[3], idadeInt, dados[5],
                 dados[6], dados[7], dados[8], dados[9]));
     }
 
@@ -92,6 +89,6 @@ public class LerArquivo {
 
         }
     }
-    
+
     //METODO QUE PESQUISA DETENTO NO ARQUIVO ATRAVES DO CODIGO DO DETENTO, ELE RETORNA UM OBJETO DO TIPO DETENTO   
 }

@@ -7,13 +7,9 @@ package telas;
 
 //IMPORTAÇÃO DA CLASSE CadastroVisitas PARA USAR OS METODOS STATICS
 // VERIFICAR COM A PROFESSORA A RESPEITO DESTA PRATICA
-import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import penitenciaria.Cadastro;
 import penitenciaria.LerArquivo;
