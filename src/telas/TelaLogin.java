@@ -125,8 +125,9 @@ public class TelaLogin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /*BOTÃO DE LOGIN QUE FARÁ UMA VERIFICAÇÃO, SE O USUARIO E SENHA FOREM CORRETOS O SISTEMA
+    CHAMA A TELA MENU PRINCIPAL SE NÃO ELE MOSTRA UMA MENSAGEM*/
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        // TODO add your handling code here:
         if (txtLogin.getText().equalsIgnoreCase("usuario01")
                 && txtSenha.getText().equals("teste")) {
             JOptionPane.showMessageDialog(null, "Bem Vindo!");
@@ -140,6 +141,9 @@ public class TelaLogin extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnEntrarActionPerformed
 
+    /*FAZ A MESMA FUNÇÃO QUE O METODO ACIMA, POREM ESTE METODO SÓ IRÁ SER EXECUTADO
+     SE O USUARIO APERTAR ENTER E O METODO DE CIMA ELE EXECUTARÁ SE O USUARIO CLICAR COM
+    O BOTÃO DO MOUSE NO BOTÃO LOGIN*/
     private void txtSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSenhaKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             if (txtLogin.getText().equalsIgnoreCase("usuario01")

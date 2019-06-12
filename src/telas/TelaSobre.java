@@ -106,6 +106,9 @@ public class TelaSobre extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /*AÇÃO NO BOTAO btngit QUE INSTANCIA UM OBJETO DO TIPO URI E PASSA POR PARAMETRO
+     A URL DO SITE QUE QUER ACESSAR. CHAMA O METODO Desktop.getDesktop().browse(link) QUE
+    ABRE A PAGINA DO NAVEGADOR COM O LINK PASSADO POR PARAMETRO*/
     private void btngitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngitActionPerformed
         try {
             URI link = new URI("https://github.com/patrickhl94/TrabalhoFinalLP.git");
@@ -147,6 +150,7 @@ public class TelaSobre extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 TelaSobre telacentro = new TelaSobre();
+                //INICIA TELA NO CENTRO
                 telacentro.setLocationRelativeTo(null);
                 telacentro.setVisible(true);
             }

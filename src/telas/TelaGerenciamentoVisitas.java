@@ -20,11 +20,13 @@ import penitenciaria.Visitante;
  */
 public class TelaGerenciamentoVisitas extends javax.swing.JFrame {
 
+    //ATRIBUTO DO TIPO DefaultTable 
     public static DefaultTableModel tabela;
 
     /**
      * Creates new form GerenciamentoVisitas
      */
+    /*CONSTRUTOR JA INICIANDO COM A INSTANCIA E O CASTING DA TABELA. ALEM DO METOO DE ORDENAR A TEBELA*/
     public TelaGerenciamentoVisitas() {
         initComponents();
         this.tabela = (DefaultTableModel) tabGerenVisit.getModel();
@@ -234,8 +236,10 @@ public class TelaGerenciamentoVisitas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //CADASTRO DE VISITANTE
     private void btnRegEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegEntradaActionPerformed
 
+        //ESSE IF FAZ A VERIFICAÇÃO DA CAPACIDADE DO PRESÍDIO. PARA TESTE INICIAMOS COM 5
         if (this.tabela.getRowCount() < 5) {
 
             try {
@@ -244,14 +248,18 @@ public class TelaGerenciamentoVisitas extends javax.swing.JFrame {
                 boolean achou = false;
                 Visitante novo = controlVisit.pesquisaVisitas(rg);
 
+                //VERIFICA SE O OBJETO "novo" VAI RETORNAR NULL OU RETORNA O OBJETO.
                 if (novo != null) {
 
+                    //ESSE FOR PERCORRE TODA AS LINHA DA TABELA PROUCURANDO SE O RG DO get.novo JA EXIXSTE NA TABELA
                     for (int i = 0; i < this.tabela.getRowCount(); i++) {
                         if (novo.getRg().equals(this.tabela.getValueAt(i, 0).toString())) {
                             achou = true;
                         }
                     }
 
+                    /*APÓS EXECUTAR O FOR ACIMA, ELE VERIFICA SE ACHOU O RG, JA CADASTRADO NA TABELA, SE JA TIVER CADASTRADO
+                     INFORMA QUE JA ESTÁ CADASTRADO, SE NÃO TIVER ELE CADASTRA CONFORME O ELSE*/
                     if (achou) {
                         JOptionPane.showMessageDialog(null, "Este visitante já se encontra no presídio");
                     } else {
@@ -267,7 +275,7 @@ public class TelaGerenciamentoVisitas extends javax.swing.JFrame {
                     novaTela.setVisible(true);
                 }
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(TelaGerenciamentoVisitas.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, "Erro! Arquivo não encontrado");
             }
         } else {
             JOptionPane.showMessageDialog(null, "Presídio Lotado!");
@@ -278,12 +286,14 @@ public class TelaGerenciamentoVisitas extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnRegEntradaActionPerformed
 
+    //BOTÃO QUE CHAMA A TELA RELATORIO TOTAL VISITANTES
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         TelaRelatTotVisit tela = new TelaRelatTotVisit();
         tela.setLocationRelativeTo(null);
         tela.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    //BOTÃO PARA REMOVER ALGUMA LINHA SELECIONADA NA TABELA
     private void btnRegSaidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegSaidaActionPerformed
         if (tabGerenVisit.getSelectedRow() != -1) {
 
@@ -296,6 +306,8 @@ public class TelaGerenciamentoVisitas extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnRegSaidaActionPerformed
 
+    /*ATUALIZA OS DADOS. ESSE METODO PEGAS OS DADOS QUE ESTÃO NA TABELA E PASSA POR PARAMETRO PARA 
+    A TELA CADASTRO VISITANTES ATRAVES DE UM OBJETO INSTANCIADO DO TIPO TelaCadastroVisit*/
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
         ControleVisitas controlVisit;
         try {
@@ -322,7 +334,7 @@ public class TelaGerenciamentoVisitas extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Selecione um visitante da Lista para ATUALIZAR do Presidio");
             }
         } catch (FileNotFoundException ex) {
-            JOptionPane.showMessageDialog(null, "Erro");
+            JOptionPane.showMessageDialog(null, "Erro! Arquivo não encontrado");
         }
 
 

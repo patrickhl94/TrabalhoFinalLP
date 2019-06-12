@@ -464,7 +464,7 @@
                                           </Group>
                                           <EmptySpace pref="14" max="32767" attributes="0"/>
                                           <Group type="103" groupAlignment="2" attributes="0">
-                                              <Component id="txtVerificar" alignment="2" min="-2" pref="139" max="-2" attributes="0"/>
+                                              <Component id="btnImportDetento" alignment="2" min="-2" pref="139" max="-2" attributes="0"/>
                                               <Component id="jButton3" alignment="2" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
@@ -495,7 +495,7 @@
                               <Component id="jLabel18" alignment="2" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel16" alignment="2" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel15" alignment="2" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtVerificar" alignment="2" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnImportDetento" alignment="2" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="2" attributes="0">
@@ -560,12 +560,12 @@
                     <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtCelMousePressed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="txtVerificar">
+                <Component class="javax.swing.JButton" name="btnImportDetento">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Importar"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtVerificarActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnImportDetentoActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtAla">
@@ -622,7 +622,7 @@
                           <Group type="103" groupAlignment="2" attributes="0">
                               <Component id="jLabel1" alignment="2" min="-2" max="-2" attributes="0"/>
                               <Component id="btnAtualiza" alignment="2" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnImporta" alignment="2" min="-2" pref="143" max="-2" attributes="0"/>
+                              <Component id="btnImportaVisitante" alignment="2" min="-2" pref="143" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                       </Group>
@@ -634,7 +634,7 @@
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="jLabel1" min="-2" pref="16" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btnImporta" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnImportaVisitante" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btnAtualiza" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
@@ -651,12 +651,12 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAtualizaActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnImporta">
+                <Component class="javax.swing.JButton" name="btnImportaVisitante">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Importar Visitante"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnImportaActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnImportaVisitanteActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel1">
@@ -721,7 +721,7 @@
             </Container>
             <Component class="javax.swing.JButton" name="jButton5">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Visitantes Cadastraods"/>
+                <Property name="text" type="java.lang.String" value="Visitantes Cadastrados"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>

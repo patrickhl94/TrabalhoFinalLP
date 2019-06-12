@@ -26,7 +26,11 @@ public class TelaRelatTotDet extends javax.swing.JFrame {
     public TelaRelatTotDet() {
         initComponents();
 
-        //CODIGO INSERIDO NO CONSTRUTOR, PARA ASSIM QUE ABRIR ESSA TELA, A TABELA JA SEJA TODA PREENCHIDA
+        /*CODIGO INSERIDO NO CONSTRUTOR, PARA ASSIM QUE ABRIR ESSA TELA,  A TABELA JA INICIAR PREENCHIDA. ESTE CONTRUTOR 
+    INSTANCIA UM OBJETO DO TIPO DefaultTableModel E FAZ UM CASTING FORÇANDO O relTabel (QUE É A TABELA DA INTERFACE),
+    A SE TRANSFORMAR EM UMA DefaultTable. INSTANCIA UM OBJETO DO TIPO LerArquivo, E INICIA UM ARRAYLIST DO TIPO <Pessoa>.
+    FAZ UM FOR VERIFICANDO OS INDICES DO ARRAY QUE É DO TIPO Visitante E RELIZA O CASTING, E ADICIONA NA TABELA ATRAVEZ DO METODO
+    tabela.addRow() UM NOVO OBJETO QUE RECEBERÁ EM CADA INDICE, OS GETS DO OBJETO DO TIPO Detento */
         DefaultTableModel tabela = (DefaultTableModel) relTabel.getModel();
 
         try {
@@ -140,12 +144,13 @@ public class TelaRelatTotDet extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //BOTÃO PARA FECHAR O RELATORIO ATRAVÉS DO METODO dispose()
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    //ATUALIZA A TABELA ATRAVES DO CONSTRUTOR  
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //ATUALIZA A TABELA ATRAVES DO CONSTRUTOR         
         dispose();
         TelaRelatTotDet atualiza = new TelaRelatTotDet();
         atualiza.setLocationRelativeTo(null);

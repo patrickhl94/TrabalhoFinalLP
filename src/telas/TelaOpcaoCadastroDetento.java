@@ -9,12 +9,12 @@ package telas;
  *
  * @author patri
  */
-public class TelaOpcaoCadastro extends javax.swing.JFrame {
+public class TelaOpcaoCadastroDetento extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaOpcaoCadastro
      */
-    public TelaOpcaoCadastro() {
+    public TelaOpcaoCadastroDetento() {
         initComponents();
     }
 
@@ -87,6 +87,7 @@ public class TelaOpcaoCadastro extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //CHAMA A TELA CASTRAR DETENTO
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         TelaCadastroDetento tela = new TelaCadastroDetento();
         tela.setLocationRelativeTo(null);
@@ -94,6 +95,7 @@ public class TelaOpcaoCadastro extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
+    //FECHA A TELA
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -115,20 +117,21 @@ public class TelaOpcaoCadastro extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaOpcaoCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaOpcaoCadastroDetento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaOpcaoCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaOpcaoCadastroDetento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaOpcaoCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaOpcaoCadastroDetento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaOpcaoCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaOpcaoCadastroDetento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaOpcaoCadastro().setVisible(true);
+                new TelaOpcaoCadastroDetento().setVisible(true);
             }
         });
     }

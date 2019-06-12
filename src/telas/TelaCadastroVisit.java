@@ -5,8 +5,6 @@
  */
 package telas;
 
-//IMPORTAÇÃO DA CLASSE CadastroVisitas PARA USAR OS METODOS STATICS
-// VERIFICAR COM A PROFESSORA A RESPEITO DESTA PRATICA
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -25,10 +23,12 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
     /**
      * Creates new form TelaCadastroVisit
      */
+    //CONTRUTOR PADRÃO VAZIO
     public TelaCadastroVisit() {
         initComponents();
     }
 
+    /*CONSTRUTOR QUE RECEBE OS DADOS DO VISITANTE POR PARAMETRO*/
     public TelaCadastroVisit(String rg, String nome, String idade, String codigoDeten,
             String parentesco, String alaPresid, String setor, String cela, String sexo) {
         initComponents();
@@ -99,7 +99,7 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         txtCel = new javax.swing.JTextField();
-        txtVerificar = new javax.swing.JButton();
+        btnImportDetento = new javax.swing.JButton();
         txtAla = new javax.swing.JTextField();
         txtSet = new javax.swing.JTextField();
         txtPar = new javax.swing.JTextField();
@@ -107,7 +107,7 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         btnAtualiza = new javax.swing.JButton();
-        btnImporta = new javax.swing.JButton();
+        btnImportaVisitante = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -312,10 +312,10 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
             }
         });
 
-        txtVerificar.setText("Importar");
-        txtVerificar.addActionListener(new java.awt.event.ActionListener() {
+        btnImportDetento.setText("Importar");
+        btnImportDetento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtVerificarActionPerformed(evt);
+                btnImportDetentoActionPerformed(evt);
             }
         });
 
@@ -375,7 +375,7 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
                                     .addComponent(txtCel, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                                    .addComponent(txtVerificar, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnImportDetento, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jButton3)))
                             .addComponent(txtNomeDeten, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
@@ -397,7 +397,7 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
                     .addComponent(jLabel18)
                     .addComponent(jLabel16)
                     .addComponent(jLabel15)
-                    .addComponent(txtVerificar))
+                    .addComponent(btnImportDetento))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(txtCel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -420,10 +420,10 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
             }
         });
 
-        btnImporta.setText("Importar Visitante");
-        btnImporta.addActionListener(new java.awt.event.ActionListener() {
+        btnImportaVisitante.setText("Importar Visitante");
+        btnImportaVisitante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnImportaActionPerformed(evt);
+                btnImportaVisitanteActionPerformed(evt);
             }
         });
 
@@ -438,7 +438,7 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel1)
                     .addComponent(btnAtualiza)
-                    .addComponent(btnImporta, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnImportaVisitante, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17))
         );
         jPanel3Layout.setVerticalGroup(
@@ -447,7 +447,7 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnImporta)
+                .addComponent(btnImportaVisitante)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAtualiza)
                 .addGap(10, 10, 10))
@@ -490,7 +490,7 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        jButton5.setText("Visitantes Cadastraods");
+        jButton5.setText("Visitantes Cadastrados");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -556,7 +556,9 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnImportaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportaActionPerformed
+    /*METODO PARA IMPORTAR OS DADOS DO VISITANTE QUE ESTÃO NO ARQUIVO TXT ATRAVÉS DO 
+    BOTÃO IMPORTAR VISITANTE */
+    private void btnImportaVisitanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportaVisitanteActionPerformed
         try {
             LerArquivo pesquisaVisit = new LerArquivo();
             ArrayList<Pessoa> atualiza = new ArrayList<>();
@@ -595,11 +597,12 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
             }
 
         } catch (FileNotFoundException ex) {
-            JOptionPane.showMessageDialog(null, "Erro!");
+            JOptionPane.showMessageDialog(null, "Erro! Arquivo não encontrado");
         }
 
-    }//GEN-LAST:event_btnImportaActionPerformed
+    }//GEN-LAST:event_btnImportaVisitanteActionPerformed
 
+    //METODO PARA ATUALIZAR VISITANTE ATRAZÉS DO BOTÃO ATUALIZAR
     private void btnAtualizaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizaActionPerformed
 
         try {
@@ -631,8 +634,7 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
                             cadas.atualizaVisit(nome, idade, rg, sexo, ala, setor, cela, crDetento, parentesco);
 
                         } catch (IOException ex) {
-                            JOptionPane.showMessageDialog(null, "Erro!");
-
+                            JOptionPane.showMessageDialog(null, "Erro ao abrir, ou fechar arquivo");
                         }
                     } else {
                         JOptionPane.showMessageDialog(null, "Existem campos obrigatórios em branco.");
@@ -643,20 +645,24 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
             }
 
         } catch (FileNotFoundException ex) {
-            JOptionPane.showMessageDialog(null, "Erro!");
+            JOptionPane.showMessageDialog(null, "Erro! Arquivo não encontrado");
+
         }
     }//GEN-LAST:event_btnAtualizaActionPerformed
 
+    //BOTAO QUE CHAMA A TELA RELATORIO DE TODOS DETENTOS CADASTRADOS
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         TelaRelatTotDet tela = new TelaRelatTotDet();
         tela.setLocationRelativeTo(null);
         tela.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    //FECHA TELA
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    /*METODO CHAMADO AO CLICAR NO BOTÃO CADASTAR VISITANTE*/
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String nome = txtNome.getText();
         String rg = txtRg.getText();
@@ -677,7 +683,7 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
                 cadas.cadastroVisitante(nome, idade, rg, sexo, ala, setor, cela, crDetento, parentesco);
 
             } catch (IOException ex) {
-                JOptionPane.showMessageDialog(null, "Erro!");
+                JOptionPane.showMessageDialog(null, "Erro ao abrir, ou fechar arquivo");
 
             }
         } else {
@@ -701,7 +707,8 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
                 + "\n DIGITE O CÓDIGO DO DETENTO PARA IMPORTAR SEUS DADOS");
     }//GEN-LAST:event_txtAlaMouseClicked
 
-    private void txtVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVerificarActionPerformed
+    //BOTÃO PARA IMPORTAR OS DADOS DO DETENTO
+    private void btnImportDetentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportDetentoActionPerformed
 
         try {
             LerArquivo pesquisaDetento = new LerArquivo();
@@ -712,7 +719,7 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
             }
 
             if (i == pesquisaDetento.lerArquivoDetento().size()) {
-                TelaOpcaoCadastro tela = new TelaOpcaoCadastro();
+                TelaOpcaoCadastroDetento tela = new TelaOpcaoCadastroDetento();
                 tela.setLocationRelativeTo(null);
                 tela.setVisible(true);
             } else {
@@ -725,9 +732,9 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
             }
 
         } catch (FileNotFoundException ex) {
-            JOptionPane.showMessageDialog(null, "Erro!");
+            JOptionPane.showMessageDialog(null, "Erro! Arquivo não encontrado");
         }
-    }//GEN-LAST:event_txtVerificarActionPerformed
+    }//GEN-LAST:event_btnImportDetentoActionPerformed
 
     private void txtCelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCelMousePressed
         JOptionPane.showMessageDialog(null, "                     ===== CAMPO NÃO EDITÁVEL! ===== "
@@ -743,6 +750,7 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
 
     }//GEN-LAST:event_txtNomeDetenMouseClicked
 
+    //BOTAO QUE CHAMA A TELA RELATORIO DE TODOS VISITANTES CADASTRADOS
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         TelaRelatTotVisit tela = new TelaRelatTotVisit();
         tela.setLocationRelativeTo(null);
@@ -789,7 +797,8 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtualiza;
-    private javax.swing.JButton btnImporta;
+    private javax.swing.JButton btnImportDetento;
+    private javax.swing.JButton btnImportaVisitante;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -840,6 +849,5 @@ public class TelaCadastroVisit extends javax.swing.JFrame {
     private javax.swing.JTextField txtRg;
     private javax.swing.JTextField txtSet;
     private javax.swing.JComboBox<String> txtSex;
-    private javax.swing.JButton txtVerificar;
     // End of variables declaration//GEN-END:variables
 }

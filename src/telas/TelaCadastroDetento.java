@@ -497,10 +497,10 @@ public class TelaCadastroDetento extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    /*METODO CHAMADO AO CLICAR NO BOTÃO CADASTAR DETENTO*/
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String nome = txtNome.getText();
         String rg = txtCodDet.getText();
@@ -530,6 +530,7 @@ public class TelaCadastroDetento extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    //METODO PARA ATUALIZAR VISITANTE ATRAZÉS DO BOTÃO ATUALIZAR
     private void btnAtualizaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizaActionPerformed
 
         try {
@@ -572,6 +573,8 @@ public class TelaCadastroDetento extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnAtualizaActionPerformed
 
+    /*METODO PARA IMPORTAR OS DADOS DO DETENTO QUE ESTÃO NO ARQUIVO TXT ATRAVÉS DO 
+    BOTÃO IMPORTAR DADOS */
     private void btnImportaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportaActionPerformed
 
         try {
@@ -672,6 +675,7 @@ public class TelaCadastroDetento extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnImportaActionPerformed
 
+    //BOTAO QUE CHAMA A TELA RELATORIO DE TODOS DETENTOS CADASTRADOS
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         TelaRelatTotDet tela = new TelaRelatTotDet();
         tela.setLocationRelativeTo(null);
@@ -711,7 +715,6 @@ public class TelaCadastroDetento extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                // new TelaCadastroVisit().setVisible(true);
                 TelaCadastroDetento tela = new TelaCadastroDetento();
                 tela.setLocationRelativeTo(null);
                 tela.setVisible(true);

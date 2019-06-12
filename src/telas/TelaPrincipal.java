@@ -221,13 +221,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenu5ActionPerformed
 
+    //BOTÃO QUE CHAMA A TELA SOBRE
     private void itemSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemSobreActionPerformed
         TelaSobre tela = new TelaSobre();
         tela.setLocationRelativeTo(null);
         tela.setVisible(true);
 
     }//GEN-LAST:event_itemSobreActionPerformed
-
+    //BOTÃO QUE FECHA O SISTEMA
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
         // TODO add your handling code here:
         dispose();
@@ -237,6 +238,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenu6ActionPerformed
 
+    //BOTÃO QUE CHAMA A TELA CADASTRO VISITANTE
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
 
         TelaCadastroVisit tela = new TelaCadastroVisit();
@@ -244,26 +246,30 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tela.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    //BOTÃO QUE CHAMA A TELA CAASTRO DENTENTO
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         TelaCadastroDetento tela = new TelaCadastroDetento();
         tela.setLocationRelativeTo(null);
         tela.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    //BOTÃO QUE CHAMA A TELA RELATORIO TOTAL DE DETENTOS
     private void btnMenuTotDetentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuTotDetentosActionPerformed
         TelaRelatTotDet tela = new TelaRelatTotDet();
         tela.setLocationRelativeTo(null);
         tela.setVisible(true);
     }//GEN-LAST:event_btnMenuTotDetentosActionPerformed
 
+    //BOTÃO QUE CHAMA A TELA RELATORIO TOTAL DE VISITANTES
     private void btnRelTotVisitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRelTotVisitActionPerformed
         TelaRelatTotVisit tela = new TelaRelatTotVisit();
         tela.setLocationRelativeTo(null);
         tela.setVisible(true);
     }//GEN-LAST:event_btnRelTotVisitActionPerformed
 
+    //BOTÃO QUE CHAMA A TELA GERENCIAMENTO DE VISITAS
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-    TelaGerenciamentoVisitas tela = new TelaGerenciamentoVisitas();
+        TelaGerenciamentoVisitas tela = new TelaGerenciamentoVisitas();
         tela.setLocationRelativeTo(null);
         tela.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
@@ -298,9 +304,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                // new TelaPrincipal().setVisible(true);
-                //iniciar formulario no meio da tela
+
                 TelaPrincipal telacentro = new TelaPrincipal();
+                //INICIAR TELA NO CENTRO 
                 telacentro.setLocationRelativeTo(null);
                 telacentro.setVisible(true);
             }

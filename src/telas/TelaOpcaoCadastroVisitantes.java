@@ -90,6 +90,7 @@ public class TelaOpcaoCadastroVisitantes extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //CHAMA A TELA CADASTRO DE VISITANTES
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         TelaCadastroVisit tela = new TelaCadastroVisit();
         tela.setLocationRelativeTo(null);
@@ -97,6 +98,7 @@ public class TelaOpcaoCadastroVisitantes extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
+    //FECHA A TELA
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
